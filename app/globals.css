@@ -1,26 +1,461 @@
 @import "tailwindcss";
 
+
+/* ------------------------------------------------------------------ *
+ * GitPersona — Design System
+ * Dark-first with a first-class light theme. Colours are driven by
+ * semantic CSS variables so every surface flips by toggling the
+ * `.light` class on <html>. Dark is the default (no class needed),
+ * which keeps server-rendered HTML flash-free.
+ * Accent family aligns with the logo: Cyan/Sky → GitPersona Blue → Deep Blue.
+ * ------------------------------------------------------------------ */
+
+/* Dark = default. `.light` on <html> opts into the light theme. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base surfaces — very dark navy-black, subtly cool */
+  --background: #070a10;
+  --surface: #0b1018;
+  --elevated: #101722;
+  --foreground: #edf4ff;
+  --muted: #8a96a8;
+  --subtle: #5f6b7a;
+  --border: rgba(255, 255, 255, 0.08);
+
+  /* Accent that reads well on this theme (deep blue in light mode) */
+  --accent-soft: #79c8ee;
+
+  /* Decorative overlays — adapt so cards, grids & chips stay legible */
+  --hairline: rgba(255, 255, 255, 0.045);
+  --hairline-2: rgba(255, 255, 255, 0.012);
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --dot: rgba(255, 255, 255, 0.06);
+  --glass-from: rgba(255, 255, 255, 0.045);
+  --glass-to: rgba(255, 255, 255, 0.015);
+  --card-from: rgba(255, 255, 255, 0.04);
+  --card-to: rgba(255, 255, 255, 0.012);
+  --chip-bg: rgba(255, 255, 255, 0.03);
+  --scrollbar: rgba(255, 255, 255, 0.1);
+  --scrollbar-hover: rgba(255, 255, 255, 0.2);
+  --header-bg: 8, 8, 11;
+  --selection: rgba(33, 139, 208, 0.3);
+  --selection-fg: #ffffff;
+
+  /* Heading gradient stops (white → sky → cyan on dark) */
+  --tg-1: #ffffff;
+  --tg-2: #b8e7fa;
+  --tg-3: var(--accent-soft);
+
+  --shadow-card-val: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+    0 20px 40px -24px rgba(0, 0, 0, 0.8);
+
+  color-scheme: dark;
 }
 
+html.light {
+  --background: #f5f8fc;
+  --surface: #ffffff;
+  --elevated: #ffffff;
+  --foreground: #0b1524;
+  --muted: #536178;
+  --subtle: #8493a7;
+  --border: rgba(12, 28, 56, 0.1);
+
+  --accent-soft: #1769c7;
+
+  --hairline: rgba(12, 28, 56, 0.04);
+  --hairline-2: rgba(12, 28, 56, 0.02);
+  --grid-line: rgba(12, 28, 56, 0.05);
+  --dot: rgba(12, 28, 56, 0.08);
+  --glass-from: rgba(255, 255, 255, 0.85);
+  --glass-to: rgba(255, 255, 255, 0.55);
+  --card-from: rgba(255, 255, 255, 0.9);
+  --card-to: rgba(246, 249, 253, 0.75);
+  --chip-bg: rgba(12, 28, 56, 0.035);
+  --scrollbar: rgba(12, 28, 56, 0.18);
+  --scrollbar-hover: rgba(12, 28, 56, 0.32);
+  --header-bg: 255, 255, 255;
+  --selection: rgba(33, 139, 208, 0.22);
+  --selection-fg: #06263f;
+
+  --tg-1: #0b1524;
+  --tg-2: #1f6fb8;
+  --tg-3: #218bd0;
+
+  --shadow-card-val: 0 1px 0 0 rgba(255, 255, 255, 0.9) inset,
+    0 18px 40px -26px rgba(15, 42, 82, 0.32);
+
+  color-scheme: light;
+}
+
+/* Utilities reference the semantic vars *inline* so they update at runtime. */
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-accent-soft: var(--accent-soft);
+
+  --shadow-card: var(--shadow-card-val);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@theme {
+  /* GitPersona Brand Accent — stable across themes */
+  --color-accent: #218bd0;
+  --color-accent-bright: #32a8df;
+  --color-accent-deep: #1769c7;
+  --color-accent-foreground: #ffffff;
+
+  /* Semantic (used sparingly for status dots) */
+  --color-success: #3ecf8e;
+  --color-warning: #f5a623;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius: 0.9rem;
+
+  --shadow-glow: 0 0 80px -20px rgba(33, 139, 208, 0.45);
+
+  /* Animations */
+  --animate-marquee: marquee 34s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-shimmer: shimmer 2.6s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(62, 207, 142, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(62, 207, 142, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(62, 207, 142, 0);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Base
+ * ------------------------------------------------------------------ */
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--selection-fg);
+}
+
+/* Theme-aware brand logo. Both marks ship in the HTML; CSS shows the one
+   that matches the active theme. Hand-written (not a Tailwind variant) so it
+   always outranks the base display utilities and never depends on order. */
+.theme-logo-light {
+  display: none;
+}
+html.light .theme-logo-dark {
+  display: none;
+}
+html.light .theme-logo-light {
+  display: block;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+  background-clip: content-box;
+}
+
+/* Theme cross-fade via the View Transitions API — one GPU-composited dissolve
+   for the whole page instead of per-element transitions. Cheap and smooth. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: ease;
+}
+
+/* Fallback cross-fade (browsers without View Transitions). Added by the theme
+   toggle only for the length of the switch. Deliberately limited to cheap paint
+   properties — no box-shadow or fill — so it stays smooth on shadow-heavy and
+   backdrop-blurred surfaces. */
+html.theme-anim,
+html.theme-anim * {
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease !important;
+}
+
+/* ------------------------------------------------------------------ *
+ * Utilities
+ * ------------------------------------------------------------------ */
+
+/* Fine dotted / grid backdrop used behind hero and sections */
+@utility bg-grid {
+  background-image: linear-gradient(
+      to right,
+      var(--grid-line) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@utility bg-dots {
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Accent gradient text — adapts per theme so headings stay legible */
+@utility text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--tg-1) 0%,
+    var(--tg-2) 45%,
+    var(--tg-3) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Brand gradient — reserved for special / high-impact moments only
+   (hero CTA, featured badges, selected highlights). Mirrors the logo:
+   Cyan/Sky → GitPersona Blue → Deep Blue. */
+@utility brand-gradient {
+  background: linear-gradient(135deg, #32a8df 0%, #218bd0 45%, #1769c7 100%);
+}
+
+/* Radial glow blob */
+@utility glow {
+  background: radial-gradient(
+    circle at center,
+    rgba(33, 139, 208, 0.32) 0%,
+    rgba(33, 139, 208, 0) 70%
+  );
+}
+
+/* Glass card surface */
+@utility glass {
+  background: linear-gradient(180deg, var(--glass-from) 0%, var(--glass-to) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+/* Hairline top highlight for cards */
+@utility card {
+  background: linear-gradient(180deg, var(--card-from), var(--card-to));
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card-val);
+}
+
+/* Subtle raised chip surface (badges, secondary buttons) */
+@utility chip {
+  background: var(--chip-bg);
+  border: 1px solid var(--color-border);
+}
+
+/* Subtle animated conic border for the hero mockup / featured cards */
+@utility ring-accent {
+  box-shadow: 0 0 0 1px rgba(33, 139, 208, 0.35),
+    0 0 60px -12px rgba(33, 139, 208, 0.5);
+}
+
+@utility mask-fade-x {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+/* No-JS fallback: reveal-animated elements ship as opacity:0 in server HTML.
+   A pre-paint script adds .js to <html>; without it, force content visible. */
+html:not(.js) [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * Blog article body — styles raw HTML produced by the GitPersona
+ * Console's rich-text editor (rendered via dangerouslySetInnerHTML),
+ * mirroring the editorial rhythm the old JSX prose primitives used.
+ * ------------------------------------------------------------------ */
+.blog-prose {
+  font-size: 17px;
+  line-height: 2rem;
+  color: var(--color-muted);
+}
+
+.blog-prose > *:first-child {
+  margin-top: 0;
+}
+
+.blog-prose p {
+  margin-top: 1.25rem;
+}
+
+.blog-prose h2 {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground);
+}
+
+.blog-prose h3 {
+  margin-top: 2.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-foreground);
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  margin-top: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.blog-prose ul {
+  list-style: disc;
+}
+
+.blog-prose ol {
+  list-style: decimal;
+}
+
+.blog-prose li {
+  margin-top: 0.625rem;
+  padding-left: 0.25rem;
+}
+
+.blog-prose li::marker {
+  color: var(--color-subtle);
+}
+
+.blog-prose code {
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.125rem 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--color-foreground);
+}
+
+.blog-prose pre {
+  margin-top: 1.25rem;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 1rem 1.25rem;
+}
+
+.blog-prose pre code {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.blog-prose a {
+  font-weight: 500;
+  color: var(--color-accent-soft);
+  text-decoration: underline;
+  text-decoration-color: rgba(121, 200, 238, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.blog-prose a:hover {
+  text-decoration-color: var(--color-accent-soft);
+}
+
+.blog-prose img {
+  margin-top: 1.75rem;
+  max-width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+
+.blog-prose blockquote {
+  margin-top: 1.75rem;
+  border-left: 2px solid rgba(33, 139, 208, 0.4);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--color-foreground);
+}
+
+.blog-prose hr {
+  margin-top: 3.5rem;
+  border-color: var(--color-border);
 }

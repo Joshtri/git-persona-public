@@ -1,0 +1,184 @@
+import {
+  Check,
+  FolderTree as FolderGit2,
+  Key as KeyRound,
+  Lock,
+  Envelope as Mail,
+  Target as Radar,
+  Thunderbolt as Zap,
+} from "@gravity-ui/icons";
+import type { ComponentType } from "react";
+import { Section, SectionHeading } from "../ui/section";
+import { RevealGroup, RevealItem } from "../ui/reveal";
+
+/* Two-beat story, cluely-style: a big accent card for the always-on watcher,
+   and a neutral card for the sub-second swap it triggers. Both are static
+   CSS mockups — the only motion is an ambient "live" pulse. */
+
+const activityBars = [38, 62, 44, 78, 52, 88, 60, 96, 70, 84, 48, 66];
+
+export function Workflow() {
+  return (
+    <Section id="workflow">
+      <SectionHeading
+        align="left"
+        eyebrow="How it works"
+        title={
+          <>
+            Set it up once. Then GitPersona{" "}
+            <span className="text-gradient">does the watching</span>.
+          </>
+        }
+        description="No terminal, no config edits. A background watcher keeps the right identity active — and swaps everything the moment you move between repos."
+      />
+
+      <RevealGroup
+        className="mt-14 grid gap-5 lg:grid-cols-[1.15fr_1fr]"
+        stagger={0.12}
+      >
+        {/* Card 1 — the watcher (accent gradient, hero of the pair) */}
+        <RevealItem className="h-full">
+          <article className="relative flex h-full flex-col overflow-hidden rounded-3xl brand-gradient p-8 text-white sm:p-10">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-24 -right-16 size-72 rounded-full bg-white/20 blur-3xl"
+            />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium tracking-wide text-white/90 uppercase backdrop-blur">
+                <Radar className="size-3.5" />
+                Always on
+              </span>
+              <h3 className="mt-5 text-2xl font-semibold leading-snug tracking-tight sm:text-[26px]">
+                GitPersona{" "}
+                <span className="rounded-lg bg-white/20 px-1.5 py-0.5">
+                  watches
+                </span>{" "}
+                every repo you open.
+              </h3>
+              <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/75">
+                A lightweight background watcher notices the moment you enter a
+                repository and checks which identity it belongs to — no clicks,
+                no thinking.
+              </p>
+            </div>
+
+            <WatcherMock />
+          </article>
+        </RevealItem>
+
+        {/* Card 2 — the swap it triggers (neutral surface) */}
+        <RevealItem className="h-full">
+          <article className="card flex h-full flex-col rounded-3xl p-8 sm:p-10">
+            <span className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-[11px] font-medium tracking-wide text-accent-soft uppercase">
+              <Zap className="size-3.5" />
+              Under a second
+            </span>
+            <h3 className="mt-5 text-2xl font-semibold leading-snug tracking-tight text-foreground sm:text-[26px]">
+              The instant you switch, everything{" "}
+              <span className="text-gradient">swaps</span>.
+            </h3>
+            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted">
+              One shortcut — or an automatic rule — rewrites your git config,
+              loads the right SSH key, and updates credentials across every open
+              repo at once.
+            </p>
+
+            <SwapMock />
+          </article>
+        </RevealItem>
+      </RevealGroup>
+    </Section>
+  );
+}
+
+/* ---- Card 1 mockup: a live "watcher" panel with an activity meter ---- */
+
+function WatcherMock() {
+  return (
+    <div className="mt-8 rounded-2xl border border-white/15 bg-black/10 p-4 backdrop-blur">
+      <div className="flex items-center justify-between">
+        <span className="flex items-center gap-2 text-[11px] font-medium text-white/85">
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70" />
+            <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
+          </span>
+          Watching filesystem
+        </span>
+        <span className="font-mono text-[10px] tracking-widest text-white/45 uppercase">
+          live
+        </span>
+      </div>
+
+      {/* Activity meter — echoes cluely's recording waveform */}
+      <div className="mt-4 flex h-10 items-end gap-1" aria-hidden>
+        {activityBars.map((h, i) => (
+          <span
+            key={i}
+            className="w-full animate-pulse rounded-sm bg-white/30"
+            style={{ height: `${h}%`, animationDelay: `${i * 90}ms` }}
+          />
+        ))}
+      </div>
+
+      <dl className="mt-4 space-y-1.5 font-mono text-[11px]">
+        <WatchRow label="cd" value="~/work/acme-api" />
+        <WatchRow label="remote" value="github.com:acme/api" />
+        <WatchRow label="match" value="Acme Corp" ok />
+      </dl>
+    </div>
+  );
+}
+
+function WatchRow({
+  label,
+  value,
+  ok = false,
+}: {
+  label: string;
+  value: string;
+  ok?: boolean;
+}) {
+  return (
+    <div className="flex items-center justify-between gap-4">
+      <dt className="text-white/45">{label}</dt>
+      <dd className="flex items-center gap-1.5 text-white/85">
+        {value}
+        {ok && <Check className="size-3.5 text-emerald-400" />}
+      </dd>
+    </div>
+  );
+}
+
+/* ---- Card 2 mockup: the resulting identity swap ---- */
+
+const swapRows: { icon: ComponentType<{ className?: string }>; label: string; value: string }[] = [
+  { icon: Mail, label: "user.email", value: "sara.k@acme.dev" },
+  { icon: KeyRound, label: "ssh key", value: "id_ed25519_acme" },
+  { icon: Lock, label: "credential", value: "sara-acme ●●●●" },
+  { icon: FolderGit2, label: "scope", value: "all open repos" },
+];
+
+function SwapMock() {
+  return (
+    <div className="mt-8 space-y-3">
+      <div className="flex items-center gap-2.5 rounded-xl border border-success/25 bg-success/[0.08] px-3.5 py-2.5">
+        <Check className="size-4 shrink-0 text-success" />
+        <p className="text-[12.5px] font-semibold text-success">
+          Switched to Acme Corp — 0.6s
+        </p>
+      </div>
+
+      <dl className="space-y-2 rounded-2xl border border-white/[0.06] bg-black/10 p-4 font-mono text-[11.5px]">
+        {swapRows.map(({ icon: Icon, label, value }) => (
+          <div key={label} className="flex items-center justify-between gap-4">
+            <dt className="flex items-center gap-2 text-subtle">2
+              <Icon className="size-3.5" />
+              {label}
+            </dt>
+            <dd className="text-accent-soft">{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}

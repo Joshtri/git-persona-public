@@ -17,7 +17,7 @@ export const site = {
   tagline: "Never commit with the wrong Git identity again.",
   description:
     "GitPersona is a desktop app for managing multiple Git identities — profiles, SSH keys, credentials, and repository mappings — with automatic switching.",
-  url: "https://gitpersona.app",
+  url: "https://gitpersona.dev",
   version: "0.9.6",
   // Current temporary repository. Centralized here so all components update together.
   githubUrl: "https://github.com/Joshtri/git-persona",

@@ -1,23 +1,21 @@
+"use client";
+
+import { Trans, useTranslation } from "react-i18next";
 import { Check, Minus, Xmark as X } from "@gravity-ui/icons";
 import { Section, SectionHeading } from "../ui/section";
 import { Reveal } from "../ui/reveal";
 
 type Cell = boolean | "partial" | string;
 
-const rows: { label: string; manual: Cell; gitpersona: Cell }[] = [
-  { label: "Speed", manual: "Minutes per switch", gitpersona: "Under a second" },
-  { label: "Easy setup", manual: false, gitpersona: true },
-  { label: "Multiple profiles", manual: "partial", gitpersona: true },
-  { label: "SSH management", manual: "Hand-edited config", gitpersona: true },
-  { label: "Credential switching", manual: false, gitpersona: true },
-  { label: "Rule-based auto-assignment", manual: false, gitpersona: true },
-  { label: "Automatic identity switching", manual: false, gitpersona: true },
-  { label: "One-click switch", manual: false, gitpersona: true },
-  { label: "Wrong-identity prevention", manual: false, gitpersona: true },
-  { label: "Visual dashboard", manual: false, gitpersona: true },
-];
-
-function CellContent({ value, positive }: { value: Cell; positive?: boolean }) {
+function CellContent({
+  value,
+  positive,
+  partialText,
+}: {
+  value: Cell;
+  positive?: boolean;
+  partialText?: string;
+}) {
   if (value === true)
     return (
       <span className="inline-flex items-center gap-1.5 text-sm font-medium text-success">
@@ -35,7 +33,7 @@ function CellContent({ value, positive }: { value: Cell; positive?: boolean }) {
   if (value === "partial")
     return (
       <span className="inline-flex items-center gap-1.5 text-sm text-subtle">
-        <Minus className="size-4" aria-hidden /> Scripts &amp; includeIf
+        <Minus className="size-4" aria-hidden /> {partialText}
       </span>
     );
   return (
@@ -46,16 +44,32 @@ function CellContent({ value, positive }: { value: Cell; positive?: boolean }) {
 }
 
 export function Comparison() {
+  const { t } = useTranslation();
+
+  const rows: { label: string; manual: Cell; gitpersona: Cell }[] = [
+    { label: t("comparison.speed"), manual: t("comparison.minutesPerSwitch"), gitpersona: t("comparison.underASecond") },
+    { label: t("comparison.easySetup"), manual: false, gitpersona: true },
+    { label: t("comparison.multipleProfiles"), manual: "partial", gitpersona: true },
+    { label: t("comparison.sshManagement"), manual: t("comparison.handEditedConfig"), gitpersona: true },
+    { label: t("comparison.credentialSwitching"), manual: false, gitpersona: true },
+    { label: t("comparison.ruleBasedAutoAssignment"), manual: false, gitpersona: true },
+    { label: t("comparison.automaticIdentitySwitching"), manual: false, gitpersona: true },
+    { label: t("comparison.oneClickSwitch"), manual: false, gitpersona: true },
+    { label: t("comparison.wrongIdentityPrevention"), manual: false, gitpersona: true },
+    { label: t("comparison.visualDashboard"), manual: false, gitpersona: true },
+  ];
+
   return (
     <Section id="compare">
       <SectionHeading
-        eyebrow="Comparison"
+        eyebrow={t("comparison.eyebrow")}
         title={
-          <>
-            Retire the <span className="text-gradient">ritual</span>.
-          </>
+          <Trans
+            i18nKey="comparison.title"
+            components={{ grad: <span className="text-gradient" /> }}
+          />
         }
-        description="Everything you currently do with scripts, aliases, and muscle memory — handled."
+        description={t("comparison.description")}
       />
       <Reveal className="mt-14 overflow-hidden rounded-2xl border border-white/[0.08]">
         <table className="w-full border-collapse text-left">
@@ -65,10 +79,10 @@ export function Comparison() {
           <thead>
             <tr className="border-b border-white/[0.08] bg-white/[0.02]">
               <th scope="col" className="px-5 py-4 text-sm font-medium text-subtle sm:px-6">
-                Capability
+                {t("comparison.capability")}
               </th>
               <th scope="col" className="px-5 py-4 text-sm font-medium text-subtle sm:px-6">
-                Manual Git config
+                {t("comparison.manualGitConfig")}
               </th>
               <th
                 scope="col"
@@ -92,7 +106,7 @@ export function Comparison() {
                   {row.label}
                 </th>
                 <td className="px-5 py-3.5 sm:px-6">
-                  <CellContent value={row.manual} />
+                  <CellContent value={row.manual} partialText={t("comparison.scriptsAndIncludeIf")} />
                 </td>
                 <td className="bg-accent/[0.05] px-5 py-3.5 sm:px-6">
                   <CellContent value={row.gitpersona} positive />

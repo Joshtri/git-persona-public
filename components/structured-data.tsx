@@ -1,5 +1,5 @@
 import { site } from "@/lib/site";
-import { faqs } from "./sections/faq";
+import { faqs } from "@/lib/faq-data";
 
 const softwareApplication = {
   "@context": "https://schema.org",

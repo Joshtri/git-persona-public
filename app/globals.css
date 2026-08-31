@@ -231,6 +231,23 @@ html.light .theme-logo-light {
   animation-timing-function: ease;
 }
 
+/* Language switch — slide + fade so it feels distinct from the theme toggle */
+html.lang-switching::view-transition-old(root) {
+  animation: lang-slide-out 0.28s ease both;
+}
+html.lang-switching::view-transition-new(root) {
+  animation: lang-slide-in 0.28s ease both;
+}
+
+@keyframes lang-slide-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-6px); }
+}
+@keyframes lang-slide-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* Fallback cross-fade (browsers without View Transitions). Added by the theme
    toggle only for the length of the switch. Deliberately limited to cheap paint
    properties — no box-shadow or fill — so it stays smooth on shadow-heavy and

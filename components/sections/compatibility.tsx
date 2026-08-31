@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslation } from "react-i18next";
 import { Key, Lock } from "@gravity-ui/icons";
 import {
   AzureDevOpsIcon,
@@ -8,8 +11,6 @@ import {
 import { Reveal } from "../ui/reveal";
 
 const items = [
-  // Brand logos render in their real colours; GitHub is monochrome by brand,
-  // and SSH/HTTPS are protocols, so they stay as quiet glyphs.
   { icon: GithubIcon, label: "GitHub", tone: "mono" },
   { icon: GitlabIcon, label: "GitLab", tone: "color" },
   { icon: BitbucketIcon, label: "Bitbucket", tone: "color" },
@@ -18,13 +19,14 @@ const items = [
   { icon: Lock, label: "HTTPS", tone: "muted" },
 ] as const;
 
-/** Quiet trust strip — every host and protocol you already push to. */
 export function Compatibility() {
+  const { t } = useTranslation();
+
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-14 lg:px-8">
       <Reveal className="flex flex-col items-center gap-8">
         <p className="text-[11px] font-semibold tracking-widest text-subtle uppercase">
-          Works with everything you already push to
+          {t("compatibility.tagline")}
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
           {items.map(({ icon: Icon, label, tone }) => (

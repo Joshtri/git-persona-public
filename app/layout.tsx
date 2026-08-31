@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { site } from "@/lib/site";
+import { I18nProvider } from "@/components/i18n-provider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -87,7 +88,9 @@ export default function RootLayout({
 					}}
 				/>
 			</head>
-			<body className="flex min-h-full flex-col">{children}</body>
+			<body className="flex min-h-full flex-col">
+				<I18nProvider>{children}</I18nProvider>
+			</body>
 		</html>
 	);
 }

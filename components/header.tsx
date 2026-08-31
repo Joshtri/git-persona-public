@@ -12,9 +12,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import { nav, site } from "@/lib/site";
 import { ButtonLink } from "./ui/button";
 import { ThemeToggle } from "./ui/theme-toggle";
+import { LanguageSwitcher } from "./ui/language-switcher";
 
 function useActiveNav() {
   const pathname = usePathname();
@@ -29,24 +31,30 @@ function useActiveNav() {
 
   return (href: string) => {
     if (href.startsWith("/#")) {
-      // Hash-anchor link: active on home page when hash matches.
       return pathname === "/" && hash === href.slice(1);
     }
-    // Page route: exact match, or prefix for nested paths.
     return pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
   };
 }
 
+const NAV_LABEL_KEYS: Record<string, string> = {
+  Features: "nav.features",
+  "How it works": "nav.howItWorks",
+  Docs: "nav.docs",
+  Blog: "nav.blog",
+  Compare: "nav.compare",
+  Roadmap: "nav.roadmap",
+  Download: "nav.download",
+};
+
 export function Header() {
   const isActive = useActiveNav();
   const [open, setOpen] = useState(false);
-  // The navbar Download button only appears once the hero (which has its own
-  // "Download for Windows" CTA) has scrolled out of view.
   const [pastHero, setPastHero] = useState(false);
   const { scrollY } = useScroll();
+  const { t } = useTranslation();
+
   useMotionValueEvent(scrollY, "change", (v) => setPastHero(v > 520));
-  // Fade the (theme-aware) header surface in as the page scrolls. Colour lives
-  // in a CSS variable so the same transform works in light and dark.
   const surfaceOpacity = useTransform(scrollY, [0, 80], [0, 1]);
 
   return (
@@ -62,8 +70,6 @@ export function Header() {
           className="flex items-center gap-2.5 text-[15px] font-semibold tracking-tight"
           aria-label="GitPersona home"
         >
-          {/* Logo swaps with the theme: dark-panel mark on dark, light-panel
-              mark on light. Both ship in the HTML; CSS shows the right one. */}
           <Image
             src="/gitpersona-dark-icon.png"
             alt="GitPersona"
@@ -89,6 +95,7 @@ export function Header() {
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
           {nav.map((item) => {
             const active = isActive(item.href);
+            const labelKey = NAV_LABEL_KEYS[item.label];
             return (
               <Link
                 key={item.href}
@@ -99,14 +106,15 @@ export function Header() {
                     : "text-muted hover:bg-foreground/[0.04] hover:text-foreground"
                 }`}
               >
-                {item.label}
+                {labelKey ? t(labelKey) : item.label}
               </Link>
             );
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
+          <LanguageSwitcher />
           <a
             href={site.githubUrl}
             target="_blank"
@@ -126,23 +134,24 @@ export function Header() {
           >
             <ButtonLink href="/download" size="sm" tabIndex={pastHero ? 0 : -1}>
               <WindowsIcon className="size-3.5" />
-              Download
+              {t("nav.download")}
             </ButtonLink>
           </div>
         </div>
 
-        {/* Mobile: theme toggle stays reachable next to the menu button */}
-        <div className="flex items-center gap-2 md:hidden">
+        {/* Mobile: theme toggle + menu button + language switcher at far right */}
+        <div className="flex items-center gap-1 md:hidden">
           <ThemeToggle />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
             className="flex size-9 items-center justify-center rounded-lg text-muted"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
+          <LanguageSwitcher />
         </div>
       </div>
 
@@ -155,6 +164,7 @@ export function Header() {
           <div className="flex flex-col gap-1">
             {nav.map((item) => {
               const active = isActive(item.href);
+              const labelKey = NAV_LABEL_KEYS[item.label];
               return (
                 <Link
                   key={item.href}
@@ -166,7 +176,7 @@ export function Header() {
                       : "text-muted hover:bg-foreground/[0.04] hover:text-foreground"
                   }`}
                 >
-                  {item.label}
+                  {labelKey ? t(labelKey) : item.label}
                 </Link>
               );
             })}
@@ -177,7 +187,7 @@ export function Header() {
               onClick={() => setOpen(false)}
             >
               <WindowsIcon className="size-3.5" />
-              Download
+              {t("nav.download")}
             </ButtonLink>
           </div>
         </nav>

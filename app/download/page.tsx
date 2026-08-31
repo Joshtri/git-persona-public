@@ -6,11 +6,8 @@ import { AnnouncementBanner } from "@/components/announcement-banner";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { WindowsIcon } from "@/components/icons";
-import {
-  DownloadOptions,
-  WINDOWS_API_KEYS,
-  resolveDownloadUrl,
-} from "@/components/sections/download";
+import { DownloadOptions } from "@/components/sections/download";
+import { WINDOWS_API_KEYS, resolveDownloadUrl } from "@/lib/download-utils";
 import { ButtonLink } from "@/components/ui/button";
 import { fetchAnnouncements, fetchLatestRelease } from "@/lib/api";
 import { changelogHref } from "@/lib/changelog";

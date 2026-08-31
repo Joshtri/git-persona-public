@@ -1,3 +1,6 @@
+"use client";
+
+import { Trans, useTranslation } from "react-i18next";
 import {
   Clock,
   ArrowDownToLine as DownloadIcon,
@@ -6,22 +9,23 @@ import {
 import { site } from "@/lib/site";
 import type { DownloadPlatform } from "@/lib/site";
 import type { Release } from "@/lib/types";
+import { resolveDownloadUrl } from "@/lib/download-utils";
 import { AppleIcon, TuxIcon, WindowsIcon } from "../icons";
 import { Section, SectionHeading } from "../ui/section";
 import { RevealGroup, RevealItem, Reveal } from "../ui/reveal";
 import { ButtonLink } from "../ui/button";
 
-type IconComponent = (props: { className?: string }) => React.ReactElement;
+export { resolveDownloadUrl } from "@/lib/download-utils";
+export { WINDOWS_API_KEYS } from "@/lib/download-utils";
 
+type IconComponent = (props: { className?: string }) => React.ReactElement;
 type PlatformVariant = { key: string; label: string };
 
 type PlatformEntry = {
   id: string;
   name: string;
   Icon: IconComponent;
-  /** Brand-tinted icon chip (background + border). */
   chipClass: string;
-  /** Brand-tinted glyph color. */
   iconClass: string;
   primary: boolean;
   platform: DownloadPlatform;
@@ -70,21 +74,6 @@ const platforms: PlatformEntry[] = [
   },
 ];
 
-export const WINDOWS_API_KEYS = ["windows-x86_64"];
-
-export function resolveDownloadUrl(
-  release: Release | null | undefined,
-  apiKeys: string[]
-): string {
-  if (release?.platforms) {
-    for (const key of apiKeys) {
-      const url = release.platforms[key]?.url;
-      if (url) return url;
-    }
-  }
-  return `${site.githubUrl}/releases/latest`;
-}
-
 function resolveVariantUrls(
   release: Release | null | undefined,
   variants: PlatformVariant[]
@@ -97,6 +86,7 @@ function resolveVariantUrls(
 }
 
 export function DownloadOptions({ release }: { release?: Release | null }) {
+  const { t } = useTranslation();
   const displayVersion = release?.version ?? site.version;
 
   return (
@@ -106,13 +96,14 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
         className="glow absolute inset-x-0 top-0 -z-10 mx-auto h-72 max-w-2xl opacity-35"
       />
       <SectionHeading
-        eyebrow="All platforms"
+        eyebrow={t("download.eyebrow")}
         title={
-          <>
-            Pick your <span className="text-gradient">platform</span>.
-          </>
+          <Trans
+            i18nKey="download.title"
+            components={{ grad: <span className="text-gradient" /> }}
+          />
         }
-        description={`Version ${displayVersion} — free, no account required, no telemetry.`}
+        description={t("download.description", { version: displayVersion })}
       />
       <RevealGroup className="mx-auto mt-14 grid max-w-4xl gap-4 sm:grid-cols-3">
         {platforms.map(
@@ -163,7 +154,7 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
                           className="w-full"
                         >
                           <DownloadIcon className="size-3.5" />
-                          Download
+                          {t("download.downloadButton")}
                         </ButtonLink>
                       </div>
                     )}
@@ -171,12 +162,12 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
                 ) : (
                   <>
                     <p className="mt-3 font-mono text-[11px] text-subtle">
-                      In development
+                      {t("download.inDevelopment")}
                     </p>
                     <div className="mt-5 w-full">
                       <span className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.02] px-3 py-2 text-sm text-subtle">
                         <Clock className="size-3.5" />
-                        Coming soon
+                        {t("download.comingSoon")}
                       </span>
                     </div>
                   </>
@@ -193,7 +184,7 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
           size="sm"
         >
           <FileText className="size-3.5" />
-          Release notes
+          {t("download.releaseNotes")}
         </ButtonLink>
       </Reveal>
     </Section>

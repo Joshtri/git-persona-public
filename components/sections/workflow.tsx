@@ -1,3 +1,6 @@
+"use client";
+
+import { Trans, useTranslation } from "react-i18next";
 import {
   Check,
   FolderTree as FolderGit2,
@@ -11,32 +14,37 @@ import type { ComponentType } from "react";
 import { Section, SectionHeading } from "../ui/section";
 import { RevealGroup, RevealItem } from "../ui/reveal";
 
-/* Two-beat story, cluely-style: a big accent card for the always-on watcher,
-   and a neutral card for the sub-second swap it triggers. Both are static
-   CSS mockups — the only motion is an ambient "live" pulse. */
-
 const activityBars = [38, 62, 44, 78, 52, 88, 60, 96, 70, 84, 48, 66];
 
+const swapRows: { icon: ComponentType<{ className?: string }>; label: string; value: string }[] = [
+  { icon: Mail, label: "user.email", value: "sara.k@acme.dev" },
+  { icon: KeyRound, label: "ssh key", value: "id_ed25519_acme" },
+  { icon: Lock, label: "credential", value: "sara-acme ●●●●" },
+  { icon: FolderGit2, label: "scope", value: "all open repos" },
+];
+
 export function Workflow() {
+  const { t } = useTranslation();
+
   return (
     <Section id="workflow">
       <SectionHeading
         align="left"
-        eyebrow="How it works"
+        eyebrow={t("workflow.eyebrow")}
         title={
-          <>
-            Set it up once. Then GitPersona{" "}
-            <span className="text-gradient">does the watching</span>.
-          </>
+          <Trans
+            i18nKey="workflow.title"
+            components={{ grad: <span className="text-gradient" /> }}
+          />
         }
-        description="No terminal, no config edits. A background watcher keeps the right identity active — and swaps everything the moment you move between repos."
+        description={t("workflow.description")}
       />
 
       <RevealGroup
         className="mt-14 grid gap-5 lg:grid-cols-[1.15fr_1fr]"
         stagger={0.12}
       >
-        {/* Card 1 — the watcher (accent gradient, hero of the pair) */}
+        {/* Card 1 — the watcher */}
         <RevealItem className="h-full">
           <article className="relative flex h-full flex-col overflow-hidden rounded-3xl brand-gradient p-8 text-white sm:p-10">
             <div
@@ -46,41 +54,40 @@ export function Workflow() {
             <div className="relative">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium tracking-wide text-white/90 uppercase backdrop-blur">
                 <Radar className="size-3.5" />
-                Always on
+                {t("workflow.watcherBadge")}
               </span>
               <h3 className="mt-5 text-2xl font-semibold leading-snug tracking-tight sm:text-[26px]">
-                GitPersona{" "}
-                <span className="rounded-lg bg-white/20 px-1.5 py-0.5">
-                  watches
-                </span>{" "}
-                every repo you open.
+                <Trans
+                  i18nKey="workflow.watcherTitle"
+                  components={{
+                    hl: <span className="rounded-lg bg-white/20 px-1.5 py-0.5" />,
+                  }}
+                />
               </h3>
               <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/75">
-                A lightweight background watcher notices the moment you enter a
-                repository and checks which identity it belongs to — no clicks,
-                no thinking.
+                {t("workflow.watcherDescription")}
               </p>
             </div>
 
-            <WatcherMock />
+            <WatcherMock watchingLabel={t("workflow.watchingFilesystem")} liveLabel={t("workflow.live")} />
           </article>
         </RevealItem>
 
-        {/* Card 2 — the swap it triggers (neutral surface) */}
+        {/* Card 2 — the swap */}
         <RevealItem className="h-full">
           <article className="card flex h-full flex-col rounded-3xl p-8 sm:p-10">
             <span className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-[11px] font-medium tracking-wide text-accent-soft uppercase">
               <Zap className="size-3.5" />
-              Under a second
+              {t("workflow.swapBadge")}
             </span>
             <h3 className="mt-5 text-2xl font-semibold leading-snug tracking-tight text-foreground sm:text-[26px]">
-              The instant you switch, everything{" "}
-              <span className="text-gradient">swaps</span>.
+              <Trans
+                i18nKey="workflow.swapTitle"
+                components={{ grad: <span className="text-gradient" /> }}
+              />
             </h3>
             <p className="mt-3 max-w-md text-[15px] leading-relaxed text-muted">
-              One shortcut — or an automatic rule — rewrites your git config,
-              loads the right SSH key, and updates credentials across every open
-              repo at once.
+              {t("workflow.swapDescription")}
             </p>
 
             <SwapMock />
@@ -91,9 +98,7 @@ export function Workflow() {
   );
 }
 
-/* ---- Card 1 mockup: a live "watcher" panel with an activity meter ---- */
-
-function WatcherMock() {
+function WatcherMock({ watchingLabel, liveLabel }: { watchingLabel: string; liveLabel: string }) {
   return (
     <div className="mt-8 rounded-2xl border border-white/15 bg-black/10 p-4 backdrop-blur">
       <div className="flex items-center justify-between">
@@ -102,14 +107,13 @@ function WatcherMock() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70" />
             <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
           </span>
-          Watching filesystem
+          {watchingLabel}
         </span>
         <span className="font-mono text-[10px] tracking-widest text-white/45 uppercase">
-          live
+          {liveLabel}
         </span>
       </div>
 
-      {/* Activity meter — echoes cluely's recording waveform */}
       <div className="mt-4 flex h-10 items-end gap-1" aria-hidden>
         {activityBars.map((h, i) => (
           <span
@@ -129,15 +133,7 @@ function WatcherMock() {
   );
 }
 
-function WatchRow({
-  label,
-  value,
-  ok = false,
-}: {
-  label: string;
-  value: string;
-  ok?: boolean;
-}) {
+function WatchRow({ label, value, ok = false }: { label: string; value: string; ok?: boolean }) {
   return (
     <div className="flex items-center justify-between gap-4">
       <dt className="text-white/45">{label}</dt>
@@ -148,15 +144,6 @@ function WatchRow({
     </div>
   );
 }
-
-/* ---- Card 2 mockup: the resulting identity swap ---- */
-
-const swapRows: { icon: ComponentType<{ className?: string }>; label: string; value: string }[] = [
-  { icon: Mail, label: "user.email", value: "sara.k@acme.dev" },
-  { icon: KeyRound, label: "ssh key", value: "id_ed25519_acme" },
-  { icon: Lock, label: "credential", value: "sara-acme ●●●●" },
-  { icon: FolderGit2, label: "scope", value: "all open repos" },
-];
 
 function SwapMock() {
   return (
@@ -171,7 +158,7 @@ function SwapMock() {
       <dl className="space-y-2 rounded-2xl border border-white/[0.06] bg-black/10 p-4 font-mono text-[11.5px]">
         {swapRows.map(({ icon: Icon, label, value }) => (
           <div key={label} className="flex items-center justify-between gap-4">
-            <dt className="flex items-center gap-2 text-subtle">2
+            <dt className="flex items-center gap-2 text-subtle">
               <Icon className="size-3.5" />
               {label}
             </dt>

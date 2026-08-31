@@ -1,29 +1,39 @@
+"use client";
+
+import { Trans, useTranslation } from "react-i18next";
 import { CircleCheck as CheckCircle2, CircleDashed } from "@gravity-ui/icons";
-import { site } from "@/lib/site";
 import { Section, SectionHeading } from "../ui/section";
 import { Reveal } from "../ui/reveal";
 
+type RoadmapItem = { title: string; body: string; eta?: string };
+
 export function Roadmap() {
+  const { t } = useTranslation();
+
+  const shipped = t("roadmap.shipped", { returnObjects: true }) as RoadmapItem[];
+  const upcoming = t("roadmap.upcoming", { returnObjects: true }) as RoadmapItem[];
+
   return (
     <Section id="roadmap">
       <SectionHeading
-        eyebrow="Roadmap"
+        eyebrow={t("roadmap.eyebrow")}
         title={
-          <>
-            Where it&apos;s <span className="text-gradient">going</span>.
-          </>
+          <Trans
+            i18nKey="roadmap.title"
+            components={{ grad: <span className="text-gradient" /> }}
+          />
         }
-        description="GitPersona is actively developed. Here's what's shipped and what's next."
+        description={t("roadmap.description")}
       />
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
         <Reveal>
           <div className="card h-full rounded-2xl p-7">
             <h3 className="mb-6 flex items-center gap-2.5 text-sm font-semibold tracking-widest text-success uppercase">
               <CheckCircle2 className="size-4" />
-              Available now
+              {t("roadmap.availableNow")}
             </h3>
             <ul className="space-y-5">
-              {site.roadmap.shipped.map((item) => (
+              {shipped.map((item) => (
                 <li key={item.title} className="flex gap-3.5">
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-success" />
                   <div>
@@ -39,10 +49,10 @@ export function Roadmap() {
           <div className="card h-full rounded-2xl p-7">
             <h3 className="mb-6 flex items-center gap-2.5 text-sm font-semibold tracking-widest text-accent-soft uppercase">
               <CircleDashed className="size-4" />
-              Coming soon
+              {t("roadmap.comingSoon")}
             </h3>
             <ul className="space-y-5">
-              {site.roadmap.upcoming.map((item) => (
+              {upcoming.map((item) => (
                 <li key={item.title} className="flex gap-3.5">
                   <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent/60" />
                   <div className="flex-1">

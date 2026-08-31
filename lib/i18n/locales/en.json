@@ -1,0 +1,261 @@
+{
+  "lang": {
+    "en": "English",
+    "id": "Indonesian"
+  },
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "docs": "Docs",
+    "blog": "Blog",
+    "compare": "Compare",
+    "roadmap": "Roadmap",
+    "download": "Download",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "headline": "Never use the wrong <grad>Git identity</grad> again.",
+    "subheading": "One click swaps your identity, SSH keys, and credentials — across every repo at once.",
+    "downloadCta": "Download for Windows",
+    "readDocs": "Read the docs",
+    "toSwitch": "to switch",
+    "configEdits": "config edits",
+    "local": "local",
+    "profiles": "profiles"
+  },
+  "compatibility": {
+    "tagline": "Works with everything you already push to"
+  },
+  "problem": {
+    "eyebrow": "The problem",
+    "titleLine1": "Multiple identities.",
+    "titleLine2": "One <grad>fragile</grad> setup.",
+    "description": "Git was built for one identity. Add a second and everything turns manual — and manual eventually fails.",
+    "wrongAuthor": {
+      "title": "Wrong commit author",
+      "body": "Work email, now permanent in public history."
+    },
+    "wrongAccount": {
+      "title": "Wrong GitHub account",
+      "body": "Personal account pushed into a client's audit log."
+    },
+    "wrongKey": {
+      "title": "Wrong SSH key",
+      "body": "Permission denied (publickey)."
+    },
+    "credRoulette": {
+      "title": "Credential roulette",
+      "body": "Last project's token applies to the next."
+    }
+  },
+  "features": {
+    "eyebrow": "Features",
+    "titleLine1": "Everything you need.",
+    "titleLine2": "Nothing you <grad>don't</grad>.",
+    "description": "One job — keeping your Git identity correct — done completely.",
+    "seeAll": "See all {{count}} features",
+    "multipleProfiles": {
+      "title": "Multiple Git profiles",
+      "body": "Name, email, signing key, and credentials as one unit."
+    },
+    "sshManager": {
+      "title": "SSH key manager",
+      "body": "Generate, import, and route keys per profile."
+    },
+    "credManager": {
+      "title": "Credential manager",
+      "body": "Tokens in your OS keychain. Never plaintext."
+    },
+    "repoMapping": {
+      "title": "Repository mapping",
+      "body": "Bind folders to profiles. Rules assign automatically."
+    },
+    "ruleAssignment": {
+      "title": "Rule-based assignment",
+      "body": "Match on path, remote, host, or owner."
+    },
+    "smartSwitching": {
+      "title": "Smart Switching",
+      "body": "A watcher activates the right identity — no click."
+    },
+    "switchConfirm": {
+      "title": "Switch confirmation",
+      "body": "Require approval before any identity change."
+    },
+    "commitGuard": {
+      "title": "Commit Guard",
+      "body": "Verify your Git name and email before each commit — warn or block."
+    },
+    "beautifulUi": {
+      "title": "Beautiful desktop UI",
+      "body": "Native-feeling, keyboard-driven, out of your way."
+    },
+    "fastPerf": {
+      "title": "Fast performance",
+      "body": "Sub-second switches. Instant launch. Sips memory."
+    },
+    "crossPlatform": {
+      "title": "Cross platform",
+      "body": "Windows, Linux, and macOS."
+    },
+    "offlineFirst": {
+      "title": "Offline first",
+      "body": "No account, no server, no telemetry."
+    },
+    "secureStorage": {
+      "title": "Secure local storage",
+      "body": "Secrets in your keychain. Config stays local."
+    }
+  },
+  "preview": {
+    "eyebrow": "Try it",
+    "title": "Feel the <grad>switch</grad>.",
+    "description": "Click a profile. Everything updates — exactly like your machine would.",
+    "profiles": "Profiles",
+    "switchingStatus": "Rewriting config · loading SSH key · swapping credentials…",
+    "switchComplete": "Switch complete",
+    "everythingUpdated": "Everything updated automatically.",
+    "activeProfile": "Active profile",
+    "timingNoTerminal": "0.6s — no terminal, no config files."
+  },
+  "screenshots": {
+    "eyebrow": "Inside the app",
+    "title": "A tool you'll <grad>want</grad> to open.",
+    "description": "Native-feeling, dark by default, fast as a light switch.",
+    "dashboard": {
+      "label": "Dashboard",
+      "caption": "Every identity and its status, at a glance."
+    },
+    "profiles": {
+      "label": "Repository Mapping",
+      "caption": "Folders bound to identities — switching happens by location."
+    },
+    "ssh": {
+      "label": "SSH Keys",
+      "caption": "Keys generated, routed, and verified per profile."
+    },
+    "settings": {
+      "label": "Settings",
+      "caption": "Guards, auto-switching, and signing — dark mode by default."
+    }
+  },
+  "workflow": {
+    "eyebrow": "How it works",
+    "title": "Set it up once. Then GitPersona <grad>does the watching</grad>.",
+    "description": "No terminal, no config edits. A background watcher keeps the right identity active — and swaps everything the moment you move between repos.",
+    "watcherBadge": "Always on",
+    "watcherTitle": "GitPersona <hl>watches</hl> every repo you open.",
+    "watcherDescription": "A lightweight background watcher notices the moment you enter a repository and checks which identity it belongs to — no clicks, no thinking.",
+    "watchingFilesystem": "Watching filesystem",
+    "live": "live",
+    "swapBadge": "Under a second",
+    "swapTitle": "The instant you switch, everything <grad>swaps</grad>.",
+    "swapDescription": "One shortcut — or an automatic rule — rewrites your git config, loads the right SSH key, and updates credentials across every open repo at once."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions, <grad>answered</grad>.",
+    "items": [
+      {
+        "q": "Why not just use the Git CLI?",
+        "a": "You can — that's the point. GitPersona doesn't replace Git; it automates the parts around it. Conditional includes, SSH host aliases, and credential helpers all work, but they're fragile, per-machine, and easy to get subtly wrong. GitPersona manages the same standard mechanisms with validation on top, so a mistake becomes impossible rather than merely unlikely."
+      },
+      {
+        "q": "Does GitPersona modify my repositories?",
+        "a": "No. GitPersona only writes standard Git configuration (user.name, user.email, signing keys) and SSH/credential settings. It never touches your working tree, history, or remotes. The optional Commit Guard installs a pre-commit hook only in repositories you choose to protect — it preserves any existing hook and can be removed at any time."
+      },
+      {
+        "q": "Can I use multiple GitHub accounts?",
+        "a": "Yes — that's the core use case. Each profile carries its own GitHub credentials and SSH key. GitPersona routes each repository to the right account automatically, so personal, work, and client accounts coexist on one machine without conflicts."
+      },
+      {
+        "q": "Is my data uploaded anywhere?",
+        "a": "No. GitPersona is local-first: profiles, keys, and tokens stay on your machine, secured by your OS keychain. There's no account, no server, and no telemetry. The upcoming Cloud Sync feature will be optional and end-to-end encrypted."
+      },
+      {
+        "q": "Does it work offline?",
+        "a": "Completely. Switching identities, mapping repositories, managing keys, and applying rules all happen locally. GitPersona does not require a network connection for any core functionality."
+      },
+      {
+        "q": "Is it open source?",
+        "a": "GitPersona is published on GitHub. You can read the source, audit what happens to your config and keys, and build trust before relying on it."
+      }
+    ]
+  },
+  "footer": {
+    "product": "Product",
+    "resources": "Resources",
+    "legal": "Legal",
+    "features": "Features",
+    "comparison": "Comparison",
+    "roadmap": "Roadmap",
+    "download": "Download",
+    "documentation": "Documentation",
+    "blog": "Blog",
+    "changelog": "Changelog",
+    "github": "GitHub",
+    "githubReleases": "GitHub Releases",
+    "issues": "Issues",
+    "privacy": "Privacy",
+    "license": "License",
+    "tagline": "One desktop app for all your Git identities.",
+    "copyright": "© {{year}} GitPersona. All rights reserved.",
+    "builtFor": "Built for developers who wear more than one hat."
+  },
+  "comparison": {
+    "eyebrow": "Comparison",
+    "title": "Retire the <grad>ritual</grad>.",
+    "description": "Everything you currently do with scripts, aliases, and muscle memory — handled.",
+    "capability": "Capability",
+    "manualGitConfig": "Manual Git config",
+    "minutesPerSwitch": "Minutes per switch",
+    "underASecond": "Under a second",
+    "handEditedConfig": "Hand-edited config",
+    "scriptsAndIncludeIf": "Scripts & includeIf",
+    "speed": "Speed",
+    "easySetup": "Easy setup",
+    "multipleProfiles": "Multiple profiles",
+    "sshManagement": "SSH management",
+    "credentialSwitching": "Credential switching",
+    "ruleBasedAutoAssignment": "Rule-based auto-assignment",
+    "automaticIdentitySwitching": "Automatic identity switching",
+    "oneClickSwitch": "One-click switch",
+    "wrongIdentityPrevention": "Wrong-identity prevention",
+    "visualDashboard": "Visual dashboard"
+  },
+  "roadmap": {
+    "eyebrow": "Roadmap",
+    "title": "Where it's <grad>going</grad>.",
+    "description": "GitPersona is actively developed. Here's what's shipped and what's next.",
+    "availableNow": "Available now",
+    "comingSoon": "Coming soon",
+    "shipped": [
+      { "title": "Git profile management", "body": "Create, edit, and switch unlimited identities — name, email, and GPG signing key bundled per profile." },
+      { "title": "SSH key manager", "body": "Import, generate, and assign SSH keys per profile. Host aliases managed automatically." },
+      { "title": "Credential vault", "body": "HTTPS tokens stored in your OS keychain, scoped per profile. Nothing in plaintext." },
+      { "title": "Repository mapping", "body": "Bind folders to profiles. Enter a repository — the right identity is already active." },
+      { "title": "Auto-assignment rules", "body": "Declarative rules match on path, remote URL, host, and owner. Export and import rule sets." },
+      { "title": "Smart Switching", "body": "A background watcher applies the correct identity automatically when you enter a mapped repository." },
+      { "title": "Commit Guard", "body": "An optional pre-commit hook verifies your Git name and email match the repository's profile — warning or blocking a mismatch. Existing hooks are preserved." },
+      { "title": "Repository groups", "body": "Organize repositories into labeled groups across clients and projects." },
+      { "title": "Audit log", "body": "Full history of every identity change, profile update, and rule application." }
+    ],
+    "upcoming": [
+      { "title": "Cloud sync", "body": "Encrypted profile sync across your machines." },
+      { "title": "Team profiles", "body": "Share identity templates across your team." },
+      { "title": "GitLab support", "body": "First-class credential and SSH support for GitLab." },
+      { "title": "Bitbucket support", "body": "Native support for Bitbucket Cloud and Server." },
+      { "title": "Workspace automation", "body": "Run scripts and set environment variables on identity switch." }
+    ]
+  },
+  "download": {
+    "eyebrow": "All platforms",
+    "title": "Pick your <grad>platform</grad>.",
+    "description": "Version {{version}} — free, no account required, no telemetry.",
+    "downloadButton": "Download",
+    "inDevelopment": "In development",
+    "comingSoon": "Coming soon",
+    "releaseNotes": "Release notes"
+  }
+}

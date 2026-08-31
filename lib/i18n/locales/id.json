@@ -1,0 +1,261 @@
+{
+  "lang": {
+    "en": "English",
+    "id": "Indonesia"
+  },
+  "nav": {
+    "features": "Fitur",
+    "howItWorks": "Cara kerja",
+    "docs": "Dokumentasi",
+    "blog": "Blog",
+    "compare": "Perbandingan",
+    "roadmap": "Roadmap",
+    "download": "Unduh",
+    "openMenu": "Buka menu",
+    "closeMenu": "Tutup menu"
+  },
+  "hero": {
+    "headline": "Jangan pernah gunakan <grad>identitas Git</grad> yang salah lagi.",
+    "subheading": "Satu klik mengganti identitas, SSH key, dan kredensial — di semua repositori sekaligus.",
+    "downloadCta": "Unduh untuk Windows",
+    "readDocs": "Baca dokumentasi",
+    "toSwitch": "untuk berpindah",
+    "configEdits": "edit konfigurasi",
+    "local": "lokal",
+    "profiles": "profil"
+  },
+  "compatibility": {
+    "tagline": "Bekerja dengan semua platform yang sudah kamu gunakan"
+  },
+  "problem": {
+    "eyebrow": "Masalahnya",
+    "titleLine1": "Banyak identitas.",
+    "titleLine2": "Satu konfigurasi yang <grad>rapuh</grad>.",
+    "description": "Git dirancang untuk satu identitas. Tambahkan yang kedua, semuanya jadi manual — dan yang manual pasti akan gagal suatu saat.",
+    "wrongAuthor": {
+      "title": "Penulis commit salah",
+      "body": "Email kantor, kini permanen di riwayat publik."
+    },
+    "wrongAccount": {
+      "title": "Akun GitHub salah",
+      "body": "Akun pribadi masuk ke log audit klien."
+    },
+    "wrongKey": {
+      "title": "SSH key salah",
+      "body": "Akses ditolak (publickey)."
+    },
+    "credRoulette": {
+      "title": "Roulette kredensial",
+      "body": "Token proyek sebelumnya dipakai ke proyek berikutnya."
+    }
+  },
+  "features": {
+    "eyebrow": "Fitur",
+    "titleLine1": "Semua yang kamu butuhkan.",
+    "titleLine2": "Tidak lebih, <grad>tidak kurang</grad>.",
+    "description": "Satu tugas — menjaga identitas Git kamu tetap benar — dikerjakan sepenuhnya.",
+    "seeAll": "Lihat semua {{count}} fitur",
+    "multipleProfiles": {
+      "title": "Banyak profil Git",
+      "body": "Nama, email, kunci signing, dan kredensial dalam satu unit."
+    },
+    "sshManager": {
+      "title": "Manajemen SSH key",
+      "body": "Buat, impor, dan arahkan key per profil."
+    },
+    "credManager": {
+      "title": "Manajemen kredensial",
+      "body": "Token disimpan di keychain OS. Tidak pernah plaintext."
+    },
+    "repoMapping": {
+      "title": "Pemetaan repositori",
+      "body": "Hubungkan folder ke profil. Aturan diterapkan otomatis."
+    },
+    "ruleAssignment": {
+      "title": "Penugasan berbasis aturan",
+      "body": "Cocokkan berdasarkan path, remote, host, atau owner."
+    },
+    "smartSwitching": {
+      "title": "Perpindahan Cerdas",
+      "body": "Pemantau mengaktifkan identitas yang tepat — tanpa klik."
+    },
+    "switchConfirm": {
+      "title": "Konfirmasi perpindahan",
+      "body": "Butuh persetujuan sebelum mengganti identitas."
+    },
+    "commitGuard": {
+      "title": "Commit Guard",
+      "body": "Verifikasi nama dan email Git sebelum setiap commit — peringatkan atau blokir."
+    },
+    "beautifulUi": {
+      "title": "Antarmuka desktop yang indah",
+      "body": "Terasa native, dikendalikan keyboard, tidak mengganggu."
+    },
+    "fastPerf": {
+      "title": "Performa cepat",
+      "body": "Perpindahan di bawah satu detik. Langsung jalan. Hemat memori."
+    },
+    "crossPlatform": {
+      "title": "Lintas platform",
+      "body": "Windows, Linux, dan macOS."
+    },
+    "offlineFirst": {
+      "title": "Utamakan offline",
+      "body": "Tanpa akun, tanpa server, tanpa telemetri."
+    },
+    "secureStorage": {
+      "title": "Penyimpanan lokal yang aman",
+      "body": "Rahasia di keychain kamu. Konfigurasi tetap lokal."
+    }
+  },
+  "preview": {
+    "eyebrow": "Coba langsung",
+    "title": "Rasakan <grad>perpindahannya</grad>.",
+    "description": "Klik sebuah profil. Segalanya diperbarui — persis seperti di mesinmu.",
+    "profiles": "Profil",
+    "switchingStatus": "Menulis ulang konfigurasi · memuat SSH key · mengganti kredensial…",
+    "switchComplete": "Perpindahan selesai",
+    "everythingUpdated": "Semua diperbarui secara otomatis.",
+    "activeProfile": "Profil aktif",
+    "timingNoTerminal": "0.6 detik — tanpa terminal, tanpa file konfigurasi."
+  },
+  "screenshots": {
+    "eyebrow": "Di dalam aplikasi",
+    "title": "Alat yang selalu <grad>ingin</grad> kamu buka.",
+    "description": "Terasa native, mode gelap by default, secepat menyalakan lampu.",
+    "dashboard": {
+      "label": "Dashboard",
+      "caption": "Semua identitas dan statusnya, sekilas pandang."
+    },
+    "profiles": {
+      "label": "Pemetaan Repositori",
+      "caption": "Folder terhubung ke identitas — perpindahan terjadi berdasarkan lokasi."
+    },
+    "ssh": {
+      "label": "SSH Key",
+      "caption": "Key dibuat, diarahkan, dan diverifikasi per profil."
+    },
+    "settings": {
+      "label": "Pengaturan",
+      "caption": "Guard, perpindahan otomatis, dan signing — mode gelap by default."
+    }
+  },
+  "workflow": {
+    "eyebrow": "Cara kerjanya",
+    "title": "Atur sekali. Lalu GitPersona <grad>yang memantau</grad>.",
+    "description": "Tanpa terminal, tanpa edit konfigurasi. Pemantau di latar belakang menjaga identitas yang tepat — dan mengganti segalanya saat kamu berpindah antar repositori.",
+    "watcherBadge": "Selalu aktif",
+    "watcherTitle": "GitPersona <hl>memantau</hl> setiap repositori yang kamu buka.",
+    "watcherDescription": "Pemantau ringan di latar belakang mendeteksi saat kamu masuk ke repositori dan memeriksa identitas mana yang sesuai — tanpa klik, tanpa pikir.",
+    "watchingFilesystem": "Memantau filesystem",
+    "live": "aktif",
+    "swapBadge": "Di bawah satu detik",
+    "swapTitle": "Seketika kamu berpindah, segalanya <grad>berganti</grad>.",
+    "swapDescription": "Satu pintasan — atau aturan otomatis — menulis ulang git config, memuat SSH key yang tepat, dan memperbarui kredensial di semua repositori terbuka sekaligus."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Pertanyaan, <grad>terjawab</grad>.",
+    "items": [
+      {
+        "q": "Kenapa tidak pakai Git CLI saja?",
+        "a": "Bisa saja — memang itu intinya. GitPersona tidak menggantikan Git; ia mengotomatiskan bagian di sekitarnya. Conditional includes, SSH host aliases, dan credential helpers semuanya bisa berjalan, tapi rentan, bergantung pada mesin, dan mudah salah secara halus. GitPersona mengelola mekanisme standar yang sama dengan validasi di atasnya, sehingga kesalahan menjadi mustahil, bukan sekadar tidak mungkin."
+      },
+      {
+        "q": "Apakah GitPersona mengubah repositori saya?",
+        "a": "Tidak. GitPersona hanya menulis konfigurasi Git standar (user.name, user.email, kunci signing) dan pengaturan SSH/kredensial. Ia tidak pernah menyentuh working tree, riwayat, atau remote kamu. Commit Guard opsional hanya memasang pre-commit hook di repositori yang kamu pilih untuk dilindungi — hook yang sudah ada tetap dipertahankan dan bisa dihapus kapan saja."
+      },
+      {
+        "q": "Bisa pakai beberapa akun GitHub?",
+        "a": "Ya — itulah kasus utamanya. Setiap profil membawa kredensial GitHub dan SSH key sendiri. GitPersona secara otomatis mengarahkan setiap repositori ke akun yang tepat, sehingga akun pribadi, kerja, dan klien bisa berdampingan di satu mesin tanpa konflik."
+      },
+      {
+        "q": "Apakah data saya diunggah ke mana pun?",
+        "a": "Tidak. GitPersona mengutamakan lokal: profil, key, dan token tetap di mesinmu, diamankan oleh keychain OS. Tidak ada akun, tidak ada server, tidak ada telemetri. Fitur Cloud Sync yang akan datang bersifat opsional dan terenkripsi end-to-end."
+      },
+      {
+        "q": "Apakah bisa digunakan offline?",
+        "a": "Sepenuhnya. Pergantian identitas, pemetaan repositori, pengelolaan key, dan penerapan aturan semuanya terjadi secara lokal. GitPersona tidak memerlukan koneksi jaringan untuk fungsi intinya."
+      },
+      {
+        "q": "Apakah open source?",
+        "a": "GitPersona dipublikasikan di GitHub. Kamu bisa membaca kode sumber, mengaudit apa yang terjadi pada konfigurasi dan key kamu, serta membangun kepercayaan sebelum mengandalkannya."
+      }
+    ]
+  },
+  "footer": {
+    "product": "Produk",
+    "resources": "Sumber Daya",
+    "legal": "Legal",
+    "features": "Fitur",
+    "comparison": "Perbandingan",
+    "roadmap": "Roadmap",
+    "download": "Unduh",
+    "documentation": "Dokumentasi",
+    "blog": "Blog",
+    "changelog": "Changelog",
+    "github": "GitHub",
+    "githubReleases": "Rilis GitHub",
+    "issues": "Issues",
+    "privacy": "Privasi",
+    "license": "Lisensi",
+    "tagline": "Satu aplikasi desktop untuk semua identitas Git kamu.",
+    "copyright": "© {{year}} GitPersona. Hak cipta dilindungi.",
+    "builtFor": "Dibuat untuk developer yang punya lebih dari satu peran."
+  },
+  "comparison": {
+    "eyebrow": "Perbandingan",
+    "title": "Tinggalkan <grad>ritualnya</grad>.",
+    "description": "Semua yang kamu lakukan dengan skrip, alias, dan kebiasaan — sudah ditangani.",
+    "capability": "Kemampuan",
+    "manualGitConfig": "Konfigurasi Git manual",
+    "minutesPerSwitch": "Menit per perpindahan",
+    "underASecond": "Di bawah satu detik",
+    "handEditedConfig": "Konfigurasi diedit manual",
+    "scriptsAndIncludeIf": "Skrip & includeIf",
+    "speed": "Kecepatan",
+    "easySetup": "Mudah dikonfigurasi",
+    "multipleProfiles": "Banyak profil",
+    "sshManagement": "Manajemen SSH",
+    "credentialSwitching": "Pergantian kredensial",
+    "ruleBasedAutoAssignment": "Penugasan otomatis berbasis aturan",
+    "automaticIdentitySwitching": "Pergantian identitas otomatis",
+    "oneClickSwitch": "Perpindahan satu klik",
+    "wrongIdentityPrevention": "Pencegahan identitas salah",
+    "visualDashboard": "Dashboard visual"
+  },
+  "roadmap": {
+    "eyebrow": "Roadmap",
+    "title": "Ke mana <grad>arahnya</grad>.",
+    "description": "GitPersona dikembangkan secara aktif. Ini yang sudah tersedia dan yang akan datang.",
+    "availableNow": "Tersedia sekarang",
+    "comingSoon": "Segera hadir",
+    "shipped": [
+      { "title": "Manajemen profil Git", "body": "Buat, edit, dan ganti identitas tanpa batas — nama, email, dan kunci GPG signing tergabung per profil." },
+      { "title": "Manajemen SSH key", "body": "Impor, buat, dan pasang SSH key per profil. Host alias dikelola secara otomatis." },
+      { "title": "Brankas kredensial", "body": "Token HTTPS disimpan di keychain OS, terikat per profil. Tidak ada yang plaintext." },
+      { "title": "Pemetaan repositori", "body": "Hubungkan folder ke profil. Masuk ke repositori — identitas yang tepat sudah aktif." },
+      { "title": "Aturan penugasan otomatis", "body": "Aturan deklaratif cocokkan berdasarkan path, remote URL, host, dan owner. Ekspor dan impor kumpulan aturan." },
+      { "title": "Perpindahan Cerdas", "body": "Pemantau di latar belakang menerapkan identitas yang benar secara otomatis saat kamu masuk ke repositori yang dipetakan." },
+      { "title": "Commit Guard", "body": "Pre-commit hook opsional memverifikasi nama dan email Git sesuai profil repositori — memperingatkan atau memblokir ketidaksesuaian. Hook yang sudah ada tetap dipertahankan." },
+      { "title": "Grup repositori", "body": "Atur repositori ke dalam grup berlabel lintas klien dan proyek." },
+      { "title": "Log audit", "body": "Riwayat lengkap setiap perubahan identitas, pembaruan profil, dan penerapan aturan." }
+    ],
+    "upcoming": [
+      { "title": "Sinkronisasi cloud", "body": "Sinkronisasi profil terenkripsi lintas mesinmu." },
+      { "title": "Profil tim", "body": "Bagikan template identitas ke seluruh tim kamu." },
+      { "title": "Dukungan GitLab", "body": "Dukungan kredensial dan SSH kelas satu untuk GitLab." },
+      { "title": "Dukungan Bitbucket", "body": "Dukungan native untuk Bitbucket Cloud dan Server." },
+      { "title": "Otomasi workspace", "body": "Jalankan skrip dan set variabel lingkungan saat pergantian identitas." }
+    ]
+  },
+  "download": {
+    "eyebrow": "Semua platform",
+    "title": "Pilih <grad>platformmu</grad>.",
+    "description": "Versi {{version}} — gratis, tanpa akun, tanpa telemetri.",
+    "downloadButton": "Unduh",
+    "inDevelopment": "Dalam pengembangan",
+    "comingSoon": "Segera hadir",
+    "releaseNotes": "Catatan rilis"
+  }
+}

@@ -84,8 +84,8 @@ export function Body() {
         You can preview which rule would match a hypothetical repository by
         describing its path, name, and remote URL. The preview reports the
         matching rule and a human-readable reason — and never triggers an actual
-        switch. Use it to sanity-check ordering before relying on{" "}
-        <A href="/docs/automation/smart-switching">Smart Switching</A>.
+        switch. Use it to sanity-check ordering before committing to an
+        assignment.
       </P>
 
       <H2 id="managing">Managing rules</H2>

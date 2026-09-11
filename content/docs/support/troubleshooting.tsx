@@ -6,14 +6,13 @@ export const meta: DocMeta = {
   slug: "support/troubleshooting",
   title: "Troubleshooting",
   description:
-    "Practical checks for the most common issues: profiles not applying, SSH or credential authentication failures, and Smart Switching not triggering.",
+    "Practical checks for the most common issues: profiles not applying, SSH or credential authentication failures, and repositories not detected.",
   category: "support",
   order: 1,
   toc: [
     { id: "profile-not-active", text: "A profile doesn't appear active" },
     { id: "ssh-auth", text: "SSH authentication fails" },
     { id: "credential-auth", text: "Credential authentication fails" },
-    { id: "smart-switching", text: "Smart Switching doesn't trigger" },
     { id: "repos-not-found", text: "Repositories aren't detected" },
   ],
 };
@@ -80,24 +79,6 @@ export function Body() {
         </Li>
       </Ul>
 
-      <H2 id="smart-switching">Smart Switching doesn&apos;t trigger</H2>
-      <Ul>
-        <Li>Confirm Smart Switching is enabled and the watcher is running (not paused).</Li>
-        <Li>
-          Check the repository actually resolves to a profile — via a direct
-          assignment or a matching rule. A repository with no assignment reports{" "}
-          <em>No assignment</em> and won&apos;t switch.
-        </Li>
-        <Li>
-          If <em>Confirm before switch</em> is on, the switch waits as{" "}
-          <em>Pending confirmation</em> until you accept it.
-        </Li>
-        <Li>
-          Use the rule <A href="/docs/automation/rules">preview</A> to verify
-          which rule would match.
-        </Li>
-      </Ul>
-
       <H2 id="repos-not-found">Repositories aren&apos;t detected</H2>
       <Ul>
         <Li>Make sure you&apos;ve scanned the folders that contain your repositories.</Li>
@@ -107,9 +88,8 @@ export function Body() {
 
       <H3>Still stuck?</H3>
       <P>
-        Open an issue on{" "}
-        <A href="https://github.com/Joshtri/git-persona/issues">GitHub</A> with
-        what you did and what you expected.
+        Describe what you tried and what you expected, then reach out via the
+        support contact on the download page.
       </P>
     </>
   );

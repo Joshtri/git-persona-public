@@ -67,9 +67,9 @@ export function Body() {
       </P>
       <Callout variant="note">
         Per-repository assignments are the foundation for automation. Once a
-        repository is bound to a profile,{" "}
-        <A href="/docs/automation/smart-switching">Smart Switching</A> can apply
-        it for you as you move between projects.
+        repository is bound to a profile, rules can select it automatically
+        based on path, remote URL, host, or owner — see{" "}
+        <A href="/docs/automation/rules">Rules</A>.
       </Callout>
 
       <H2 id="manual-equivalent">The manual equivalent</H2>

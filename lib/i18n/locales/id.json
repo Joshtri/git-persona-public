@@ -75,18 +75,6 @@
       "title": "Penugasan berbasis aturan",
       "body": "Cocokkan berdasarkan path, remote, host, atau owner."
     },
-    "smartSwitching": {
-      "title": "Perpindahan Cerdas",
-      "body": "Pemantau mengaktifkan identitas yang tepat — tanpa klik."
-    },
-    "switchConfirm": {
-      "title": "Konfirmasi perpindahan",
-      "body": "Butuh persetujuan sebelum mengganti identitas."
-    },
-    "commitGuard": {
-      "title": "Commit Guard",
-      "body": "Verifikasi nama dan email Git sebelum setiap commit — peringatkan atau blokir."
-    },
     "beautifulUi": {
       "title": "Antarmuka desktop yang indah",
       "body": "Terasa native, dikendalikan keyboard, tidak mengganggu."
@@ -137,17 +125,17 @@
     },
     "settings": {
       "label": "Pengaturan",
-      "caption": "Guard, perpindahan otomatis, dan signing — mode gelap by default."
+      "caption": "Penugasan aturan, SSH signing, dan preferensi — mode gelap by default."
     }
   },
   "workflow": {
     "eyebrow": "Cara kerjanya",
-    "title": "Atur sekali. Lalu GitPersona <grad>yang memantau</grad>.",
-    "description": "Tanpa terminal, tanpa edit konfigurasi. Pemantau di latar belakang menjaga identitas yang tepat — dan mengganti segalanya saat kamu berpindah antar repositori.",
-    "watcherBadge": "Selalu aktif",
-    "watcherTitle": "GitPersona <hl>memantau</hl> setiap repositori yang kamu buka.",
-    "watcherDescription": "Pemantau ringan di latar belakang mendeteksi saat kamu masuk ke repositori dan memeriksa identitas mana yang sesuai — tanpa klik, tanpa pikir.",
-    "watchingFilesystem": "Memantau filesystem",
+    "title": "Atur sekali. GitPersona menjaga identitas yang tepat tetap <grad>terarahkan</grad>.",
+    "description": "Tanpa terminal, tanpa edit konfigurasi. Petakan repositori ke profil dengan aturan, lalu ganti dengan satu klik — git config, SSH key, dan kredensial diperbarui sekaligus.",
+    "watcherBadge": "Rule engine",
+    "watcherTitle": "GitPersona <hl>memetakan</hl> setiap repositori ke profil yang tepat.",
+    "watcherDescription": "Definisikan aturan sekali — cocokkan berdasarkan path, remote URL, host, atau owner. Identitas yang benar sudah terarahkan saat kamu membuka repositori.",
+    "watchingFilesystem": "Rule engine",
     "live": "aktif",
     "swapBadge": "Di bawah satu detik",
     "swapTitle": "Seketika kamu berpindah, segalanya <grad>berganti</grad>.",
@@ -163,7 +151,7 @@
       },
       {
         "q": "Apakah GitPersona mengubah repositori saya?",
-        "a": "Tidak. GitPersona hanya menulis konfigurasi Git standar (user.name, user.email, kunci signing) dan pengaturan SSH/kredensial. Ia tidak pernah menyentuh working tree, riwayat, atau remote kamu. Commit Guard opsional hanya memasang pre-commit hook di repositori yang kamu pilih untuk dilindungi — hook yang sudah ada tetap dipertahankan dan bisa dihapus kapan saja."
+        "a": "Tidak. GitPersona hanya menulis konfigurasi Git standar (user.name, user.email, kunci signing) dan pengaturan SSH/kredensial. Ia tidak pernah menyentuh working tree, riwayat, atau remote kamu."
       },
       {
         "q": "Bisa pakai beberapa akun GitHub?",
@@ -178,8 +166,8 @@
         "a": "Sepenuhnya. Pergantian identitas, pemetaan repositori, pengelolaan key, dan penerapan aturan semuanya terjadi secara lokal. GitPersona tidak memerlukan koneksi jaringan untuk fungsi intinya."
       },
       {
-        "q": "Apakah open source?",
-        "a": "GitPersona dipublikasikan di GitHub. Kamu bisa membaca kode sumber, mengaudit apa yang terjadi pada konfigurasi dan key kamu, serta membangun kepercayaan sebelum mengandalkannya."
+        "q": "Apakah gratis untuk digunakan?",
+        "a": "Ya — GitPersona gratis untuk diunduh dan digunakan. Tidak perlu akun, tidak ada langganan, tidak ada telemetri."
       }
     ]
   },
@@ -194,11 +182,8 @@
     "documentation": "Dokumentasi",
     "blog": "Blog",
     "changelog": "Changelog",
-    "github": "GitHub",
     "githubReleases": "Rilis GitHub",
-    "issues": "Issues",
     "privacy": "Privasi",
-    "license": "Lisensi",
     "tagline": "Satu aplikasi desktop untuk semua identitas Git kamu.",
     "copyright": "© {{year}} GitPersona. Hak cipta dilindungi.",
     "builtFor": "Dibuat untuk developer yang punya lebih dari satu peran."
@@ -219,7 +204,6 @@
     "sshManagement": "Manajemen SSH",
     "credentialSwitching": "Pergantian kredensial",
     "ruleBasedAutoAssignment": "Penugasan otomatis berbasis aturan",
-    "automaticIdentitySwitching": "Pergantian identitas otomatis",
     "oneClickSwitch": "Perpindahan satu klik",
     "wrongIdentityPrevention": "Pencegahan identitas salah",
     "visualDashboard": "Dashboard visual"
@@ -236,8 +220,6 @@
       { "title": "Brankas kredensial", "body": "Token HTTPS disimpan di keychain OS, terikat per profil. Tidak ada yang plaintext." },
       { "title": "Pemetaan repositori", "body": "Hubungkan folder ke profil. Masuk ke repositori — identitas yang tepat sudah aktif." },
       { "title": "Aturan penugasan otomatis", "body": "Aturan deklaratif cocokkan berdasarkan path, remote URL, host, dan owner. Ekspor dan impor kumpulan aturan." },
-      { "title": "Perpindahan Cerdas", "body": "Pemantau di latar belakang menerapkan identitas yang benar secara otomatis saat kamu masuk ke repositori yang dipetakan." },
-      { "title": "Commit Guard", "body": "Pre-commit hook opsional memverifikasi nama dan email Git sesuai profil repositori — memperingatkan atau memblokir ketidaksesuaian. Hook yang sudah ada tetap dipertahankan." },
       { "title": "Grup repositori", "body": "Atur repositori ke dalam grup berlabel lintas klien dan proyek." },
       { "title": "Log audit", "body": "Riwayat lengkap setiap perubahan identitas, pembaruan profil, dan penerapan aturan." }
     ],

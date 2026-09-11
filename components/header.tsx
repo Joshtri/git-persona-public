@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "motion/react";
 import { Bars as Menu, Xmark as X } from "@gravity-ui/icons";
-import { GithubIcon, WindowsIcon } from "./icons";
+import { WindowsIcon } from "./icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -115,15 +115,6 @@ export function Header() {
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
           <LanguageSwitcher />
-          <a
-            href={site.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitPersona on GitHub"
-            className="flex size-9 items-center justify-center rounded-full text-muted transition-colors hover:text-foreground"
-          >
-            <GithubIcon className="size-[18px]" />
-          </a>
           <div
             className={`transition-all duration-300 ${
               pastHero

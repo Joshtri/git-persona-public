@@ -4,6 +4,7 @@ import {
   Key as KeyRound,
   HandPointUp as MousePointerClick,
   ShieldCheck,
+  Sliders as SlidersHorizontal,
   MagicWand as Wand2,
 } from "@gravity-ui/icons";
 import type { ReactNode } from "react";
@@ -109,16 +110,18 @@ function ConfigIllustration() {
   );
 }
 
-function ValidationIllustration() {
+function AutoRulesIllustration() {
   return (
-    <div className="space-y-1.5 text-[10px]">
-      {["user.name matches profile", "user.email matches profile", "warn or block on mismatch"].map((label) => (
-        <div
-          key={label}
-          className="flex items-center gap-2 rounded-md bg-(--chip-bg) border px-2.5 py-1.5"
-        >
-          <BadgeCheck className="size-3 text-success" />
-          <span className="font-mono text-muted">{label}</span>
+    <div className="space-y-1.5 font-mono text-[10px]">
+      {[
+        { type: "path", rule: "~/work/acme-*" },
+        { type: "remote", rule: "github.com/acme/*" },
+        { type: "owner", rule: "acme-org" },
+      ].map(({ type, rule }) => (
+        <div key={rule} className="flex items-center gap-2 rounded-md bg-(--chip-bg) border px-2.5 py-1.5">
+          <span className="shrink-0 text-accent-soft">{type}</span>
+          <span className="flex-1 truncate text-subtle">{rule}</span>
+          <BadgeCheck className="size-3 shrink-0 text-success" />
         </div>
       ))}
     </div>
@@ -162,10 +165,10 @@ const solutions: {
     art: <ConfigIllustration />,
   },
   {
-    icon: BadgeCheck,
-    title: "Commit Guard",
-    body: "An optional pre-commit hook checks your Git name and email match the repository's profile — warning or blocking a mismatched commit. Existing hooks are preserved.",
-    art: <ValidationIllustration />,
+    icon: SlidersHorizontal,
+    title: "Auto-assignment rules",
+    body: "Declarative rules match repos on path, remote URL, host, or owner — the right identity is assigned the moment you open a repository.",
+    art: <AutoRulesIllustration />,
   },
 ];
 

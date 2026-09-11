@@ -75,18 +75,6 @@
       "title": "Rule-based assignment",
       "body": "Match on path, remote, host, or owner."
     },
-    "smartSwitching": {
-      "title": "Smart Switching",
-      "body": "A watcher activates the right identity — no click."
-    },
-    "switchConfirm": {
-      "title": "Switch confirmation",
-      "body": "Require approval before any identity change."
-    },
-    "commitGuard": {
-      "title": "Commit Guard",
-      "body": "Verify your Git name and email before each commit — warn or block."
-    },
     "beautifulUi": {
       "title": "Beautiful desktop UI",
       "body": "Native-feeling, keyboard-driven, out of your way."
@@ -137,18 +125,18 @@
     },
     "settings": {
       "label": "Settings",
-      "caption": "Guards, auto-switching, and signing — dark mode by default."
+      "caption": "Rule assignment, SSH signing, and preferences — dark mode by default."
     }
   },
   "workflow": {
     "eyebrow": "How it works",
-    "title": "Set it up once. Then GitPersona <grad>does the watching</grad>.",
-    "description": "No terminal, no config edits. A background watcher keeps the right identity active — and swaps everything the moment you move between repos.",
-    "watcherBadge": "Always on",
-    "watcherTitle": "GitPersona <hl>watches</hl> every repo you open.",
-    "watcherDescription": "A lightweight background watcher notices the moment you enter a repository and checks which identity it belongs to — no clicks, no thinking.",
-    "watchingFilesystem": "Watching filesystem",
-    "live": "live",
+    "title": "Set it up once. GitPersona keeps the right identity <grad>assigned</grad>.",
+    "description": "No terminal, no config edits. Map your repos to profiles with rules, then switch with one click — git config, SSH key, and credentials update everywhere at once.",
+    "watcherBadge": "Rule engine",
+    "watcherTitle": "GitPersona <hl>maps</hl> every repo to the right profile.",
+    "watcherDescription": "Define rules once — match on path, remote URL, host, or owner. The correct identity is already assigned when you open a repository.",
+    "watchingFilesystem": "Rule engine",
+    "live": "active",
     "swapBadge": "Under a second",
     "swapTitle": "The instant you switch, everything <grad>swaps</grad>.",
     "swapDescription": "One shortcut — or an automatic rule — rewrites your git config, loads the right SSH key, and updates credentials across every open repo at once."
@@ -163,7 +151,7 @@
       },
       {
         "q": "Does GitPersona modify my repositories?",
-        "a": "No. GitPersona only writes standard Git configuration (user.name, user.email, signing keys) and SSH/credential settings. It never touches your working tree, history, or remotes. The optional Commit Guard installs a pre-commit hook only in repositories you choose to protect — it preserves any existing hook and can be removed at any time."
+        "a": "No. GitPersona only writes standard Git configuration (user.name, user.email, signing keys) and SSH/credential settings. It never touches your working tree, history, or remotes."
       },
       {
         "q": "Can I use multiple GitHub accounts?",
@@ -178,8 +166,8 @@
         "a": "Completely. Switching identities, mapping repositories, managing keys, and applying rules all happen locally. GitPersona does not require a network connection for any core functionality."
       },
       {
-        "q": "Is it open source?",
-        "a": "GitPersona is published on GitHub. You can read the source, audit what happens to your config and keys, and build trust before relying on it."
+        "q": "Is it free to use?",
+        "a": "Yes — GitPersona is free to download and use. No account required, no subscription, no telemetry."
       }
     ]
   },
@@ -194,11 +182,8 @@
     "documentation": "Documentation",
     "blog": "Blog",
     "changelog": "Changelog",
-    "github": "GitHub",
     "githubReleases": "GitHub Releases",
-    "issues": "Issues",
     "privacy": "Privacy",
-    "license": "License",
     "tagline": "One desktop app for all your Git identities.",
     "copyright": "© {{year}} GitPersona. All rights reserved.",
     "builtFor": "Built for developers who wear more than one hat."
@@ -219,7 +204,6 @@
     "sshManagement": "SSH management",
     "credentialSwitching": "Credential switching",
     "ruleBasedAutoAssignment": "Rule-based auto-assignment",
-    "automaticIdentitySwitching": "Automatic identity switching",
     "oneClickSwitch": "One-click switch",
     "wrongIdentityPrevention": "Wrong-identity prevention",
     "visualDashboard": "Visual dashboard"
@@ -236,8 +220,6 @@
       { "title": "Credential vault", "body": "HTTPS tokens stored in your OS keychain, scoped per profile. Nothing in plaintext." },
       { "title": "Repository mapping", "body": "Bind folders to profiles. Enter a repository — the right identity is already active." },
       { "title": "Auto-assignment rules", "body": "Declarative rules match on path, remote URL, host, and owner. Export and import rule sets." },
-      { "title": "Smart Switching", "body": "A background watcher applies the correct identity automatically when you enter a mapped repository." },
-      { "title": "Commit Guard", "body": "An optional pre-commit hook verifies your Git name and email match the repository's profile — warning or blocking a mismatch. Existing hooks are preserved." },
       { "title": "Repository groups", "body": "Organize repositories into labeled groups across clients and projects." },
       { "title": "Audit log", "body": "Full history of every identity change, profile update, and rule application." }
     ],

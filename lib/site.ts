@@ -78,14 +78,6 @@ export const site = {
         body: "Declarative rules match on path, remote URL, host, and owner. Export and import rule sets.",
       },
       {
-        title: "Smart Switching",
-        body: "A background watcher applies the correct identity automatically when you enter a mapped repository.",
-      },
-      {
-        title: "Commit Guard",
-        body: "An optional pre-commit hook verifies your Git name and email match the repository's profile — warning or blocking a mismatch. Existing hooks are preserved.",
-      },
-      {
         title: "Repository groups",
         body: "Organize repositories into labeled groups across clients and projects.",
       },

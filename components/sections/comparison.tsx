@@ -53,7 +53,6 @@ export function Comparison() {
     { label: t("comparison.sshManagement"), manual: t("comparison.handEditedConfig"), gitpersona: true },
     { label: t("comparison.credentialSwitching"), manual: false, gitpersona: true },
     { label: t("comparison.ruleBasedAutoAssignment"), manual: false, gitpersona: true },
-    { label: t("comparison.automaticIdentitySwitching"), manual: false, gitpersona: true },
     { label: t("comparison.oneClickSwitch"), manual: false, gitpersona: true },
     { label: t("comparison.wrongIdentityPrevention"), manual: false, gitpersona: true },
     { label: t("comparison.visualDashboard"), manual: false, gitpersona: true },

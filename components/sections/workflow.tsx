@@ -7,14 +7,12 @@ import {
   Key as KeyRound,
   Lock,
   Envelope as Mail,
-  Target as Radar,
+  Sliders as SlidersHorizontal,
   Thunderbolt as Zap,
 } from "@gravity-ui/icons";
 import type { ComponentType } from "react";
 import { Section, SectionHeading } from "../ui/section";
 import { RevealGroup, RevealItem } from "../ui/reveal";
-
-const activityBars = [38, 62, 44, 78, 52, 88, 60, 96, 70, 84, 48, 66];
 
 const swapRows: { icon: ComponentType<{ className?: string }>; label: string; value: string }[] = [
   { icon: Mail, label: "user.email", value: "sara.k@acme.dev" },
@@ -44,7 +42,7 @@ export function Workflow() {
         className="mt-14 grid gap-5 lg:grid-cols-[1.15fr_1fr]"
         stagger={0.12}
       >
-        {/* Card 1 — the watcher */}
+        {/* Card 1 — rule engine */}
         <RevealItem className="h-full">
           <article className="relative flex h-full flex-col overflow-hidden rounded-3xl brand-gradient p-8 text-white sm:p-10">
             <div
@@ -53,7 +51,7 @@ export function Workflow() {
             />
             <div className="relative">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium tracking-wide text-white/90 uppercase backdrop-blur">
-                <Radar className="size-3.5" />
+                <SlidersHorizontal className="size-3.5" />
                 {t("workflow.watcherBadge")}
               </span>
               <h3 className="mt-5 text-2xl font-semibold leading-snug tracking-tight sm:text-[26px]">
@@ -69,7 +67,7 @@ export function Workflow() {
               </p>
             </div>
 
-            <WatcherMock watchingLabel={t("workflow.watchingFilesystem")} liveLabel={t("workflow.live")} />
+            <RulesMock engineLabel={t("workflow.watchingFilesystem")} activeLabel={t("workflow.live")} />
           </article>
         </RevealItem>
 
@@ -98,7 +96,12 @@ export function Workflow() {
   );
 }
 
-function WatcherMock({ watchingLabel, liveLabel }: { watchingLabel: string; liveLabel: string }) {
+function RulesMock({ engineLabel, activeLabel }: { engineLabel: string; activeLabel: string }) {
+  const rules: { type: string; value: string }[] = [
+    { type: "path", value: "~/work/acme-*" },
+    { type: "remote", value: "github.com/acme/*" },
+    { type: "owner", value: "acme-org" },
+  ];
   return (
     <div className="mt-8 rounded-2xl border border-white/15 bg-black/10 p-4 backdrop-blur">
       <div className="flex items-center justify-between">
@@ -107,40 +110,28 @@ function WatcherMock({ watchingLabel, liveLabel }: { watchingLabel: string; live
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70" />
             <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
           </span>
-          {watchingLabel}
+          {engineLabel}
         </span>
         <span className="font-mono text-[10px] tracking-widest text-white/45 uppercase">
-          {liveLabel}
+          {activeLabel}
         </span>
-      </div>
-
-      <div className="mt-4 flex h-10 items-end gap-1" aria-hidden>
-        {activityBars.map((h, i) => (
-          <span
-            key={i}
-            className="w-full animate-pulse rounded-sm bg-white/30"
-            style={{ height: `${h}%`, animationDelay: `${i * 90}ms` }}
-          />
-        ))}
       </div>
 
       <dl className="mt-4 space-y-1.5 font-mono text-[11px]">
-        <WatchRow label="cd" value="~/work/acme-api" />
-        <WatchRow label="remote" value="github.com:acme/api" />
-        <WatchRow label="match" value="Acme Corp" ok />
+        {rules.map(({ type, value }) => (
+          <div key={type} className="flex items-center justify-between gap-4">
+            <dt className="text-white/45">{type}</dt>
+            <dd className="flex items-center gap-1.5 text-white/85">
+              {value}
+              <Check className="size-3.5 text-emerald-400" />
+            </dd>
+          </div>
+        ))}
       </dl>
-    </div>
-  );
-}
 
-function WatchRow({ label, value, ok = false }: { label: string; value: string; ok?: boolean }) {
-  return (
-    <div className="flex items-center justify-between gap-4">
-      <dt className="text-white/45">{label}</dt>
-      <dd className="flex items-center gap-1.5 text-white/85">
-        {value}
-        {ok && <Check className="size-3.5 text-emerald-400" />}
-      </dd>
+      <div className="mt-3 rounded-lg bg-white/10 px-3 py-2 text-[11px] font-medium text-white/90">
+        → Acme Corp
+      </div>
     </div>
   );
 }

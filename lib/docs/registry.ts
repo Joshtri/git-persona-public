@@ -11,11 +11,9 @@ import * as sshKeys from "@/content/docs/identity/ssh-keys";
 import * as credentials from "@/content/docs/identity/credentials";
 // Automation
 import * as rules from "@/content/docs/automation/rules";
-import * as smartSwitching from "@/content/docs/automation/smart-switching";
 import * as repositoryGroups from "@/content/docs/automation/repository-groups";
 // Security
 import * as gpgSigning from "@/content/docs/security/gpg-signing";
-import * as commitGuard from "@/content/docs/security/commit-guard";
 import * as credentialStorage from "@/content/docs/security/credential-storage";
 // Reference
 import * as activityLog from "@/content/docs/reference/activity-log";
@@ -45,10 +43,8 @@ const modules: DocModule[] = [
   sshKeys,
   credentials,
   rules,
-  smartSwitching,
   repositoryGroups,
   gpgSigning,
-  commitGuard,
   credentialStorage,
   activityLog,
   settings,

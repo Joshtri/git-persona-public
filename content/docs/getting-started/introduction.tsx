@@ -72,9 +72,8 @@ export function Body() {
           {" "}attach to a profile and follow it when it activates.
         </Li>
         <Li>
-          <strong>Rules</strong> and <strong>Smart Switching</strong> apply the
-          right profile automatically based on a repository&apos;s path or
-          remote.
+          <strong>Rules</strong> apply the right profile automatically based on
+          a repository&apos;s path or remote.
         </Li>
       </Ul>
 

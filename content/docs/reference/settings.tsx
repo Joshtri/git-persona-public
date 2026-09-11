@@ -12,7 +12,6 @@ export const meta: DocMeta = {
     { id: "appearance", text: "Appearance" },
     { id: "startup-tray", text: "Startup and tray" },
     { id: "repositories", text: "Repositories" },
-    { id: "smart-switching", text: "Smart Switching" },
   ],
 };
 
@@ -45,10 +44,8 @@ export function Body() {
           the main window.
         </Li>
         <Li>
-          <strong>Close to tray</strong> — keep running in the tray when you close
-          the window, instead of quitting. This lets{" "}
-          <A href="/docs/automation/smart-switching">Smart Switching</A> keep
-          watching in the background.
+          <strong>Close to tray</strong> — keep running in the tray when you
+          close the window, instead of quitting.
         </Li>
       </Ul>
       <P>
@@ -64,12 +61,6 @@ export function Body() {
         repositories are discovered and organized.
       </P>
 
-      <H2 id="smart-switching">Smart Switching</H2>
-      <P>
-        Smart Switching has its own set of toggles — enable/disable, confirm
-        before switch, notifications, and start on launch — documented in{" "}
-        <A href="/docs/automation/smart-switching">Smart Switching</A>.
-      </P>
     </>
   );
 }

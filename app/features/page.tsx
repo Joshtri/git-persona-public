@@ -10,12 +10,12 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Every GitPersona feature — profiles, SSH keys, credentials, repository mapping, rule-based auto-assignment, and Smart Switching. One desktop app for all your Git identities.",
+    "Every GitPersona feature — profiles, SSH keys, credentials, repository mapping, and rule-based auto-assignment. One desktop app for all your Git identities.",
   alternates: { canonical: "/features" },
   openGraph: {
     title: `Features — ${site.name}`,
     description:
-      "Profiles, SSH keys, credentials, repo mapping, rules, and Smart Switching — everything GitPersona does.",
+      "Profiles, SSH keys, credentials, repo mapping, and rules — everything GitPersona does.",
     url: `${site.url}/features`,
   },
 };

@@ -23,8 +23,6 @@ const softwareApplication = {
     "Secure credential storage via OS keychain",
     "Repository to identity mapping",
     "Declarative auto-assignment rules",
-    "Smart Switching — automatic identity detection",
-    "Commit Guard — verify Git identity before each commit",
     "Repository groups",
     "Audit log",
   ],

@@ -25,16 +25,13 @@ export function Footer({ version }: { version?: string }) {
         { labelKey: "footer.documentation", href: "/docs" },
         { labelKey: "footer.blog", href: "/blog" },
         { labelKey: "footer.changelog", href: "/changelog" },
-        { labelKey: "footer.github", href: site.githubUrl, external: true },
         { labelKey: "footer.githubReleases", href: `${site.githubUrl}/releases`, external: true },
-        { labelKey: "footer.issues", href: `${site.githubUrl}/issues`, external: true },
       ],
     },
     {
       headingKey: "footer.legal",
       links: [
         { labelKey: "footer.privacy", href: "/privacy" },
-        { labelKey: "footer.license", href: "/license" },
       ],
     },
   ];

@@ -6,7 +6,7 @@ export const faqs = [
   },
   {
     q: "Does GitPersona modify my repositories?",
-    a: "No. GitPersona only writes standard Git configuration (user.name, user.email, signing keys) and SSH/credential settings. It never touches your working tree, history, or remotes. The optional Commit Guard installs a pre-commit hook only in repositories you choose to protect — it preserves any existing hook and can be removed at any time.",
+    a: "No. GitPersona only writes standard Git configuration (user.name, user.email, signing keys) and SSH/credential settings. It never touches your working tree, history, or remotes.",
   },
   {
     q: "Can I use multiple GitHub accounts?",
@@ -21,7 +21,7 @@ export const faqs = [
     a: "Completely. Switching identities, mapping repositories, managing keys, and applying rules all happen locally. GitPersona does not require a network connection for any core functionality.",
   },
   {
-    q: "Is it open source?",
-    a: "GitPersona is published on GitHub. You can read the source, audit what happens to your config and keys, and build trust before relying on it.",
+    q: "Is it free to use?",
+    a: "Yes — GitPersona is free to download and use. No account required, no subscription, no telemetry.",
   },
 ];

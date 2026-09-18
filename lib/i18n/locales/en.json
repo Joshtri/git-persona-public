@@ -117,7 +117,7 @@
     },
     "profiles": {
       "label": "Repository Mapping",
-      "caption": "Folders bound to identities — switching happens by location."
+      "caption": "Folders bound to identities — the right one per repository."
     },
     "ssh": {
       "label": "SSH Keys",

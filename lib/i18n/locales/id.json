@@ -117,7 +117,7 @@
     },
     "profiles": {
       "label": "Pemetaan Repositori",
-      "caption": "Folder terhubung ke identitas — perpindahan terjadi berdasarkan lokasi."
+      "caption": "Folder terhubung ke identitas — yang tepat untuk tiap repositori."
     },
     "ssh": {
       "label": "SSH Key",

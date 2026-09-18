@@ -286,29 +286,6 @@ export function DashboardMockup({ className = "" }: { className?: string }) {
             </Badge>
           </div>
 
-          {/* Smart Identity widget */}
-          <Card>
-            <CardTitle title="Smart Identity">
-              <Badge variant="success">Watching</Badge>
-              <span className="ml-1 flex h-4 w-7 items-center justify-end rounded-full bg-accent px-0.5">
-                <span className="size-3 rounded-full bg-white" />
-              </span>
-            </CardTitle>
-            <StatRow
-              stats={[
-                { label: "Monitored", value: "8" },
-                { label: "Uptime", value: "2h 14m" },
-                { label: "State", value: "Live" },
-              ]}
-            />
-            <div className="flex items-center gap-2 border-t border-white/[0.06] px-3.5 py-2.5">
-              <CircleCheck className="size-3.5 shrink-0 text-success" />
-              <span className="text-[11px] text-muted">Last switch</span>
-              <span className="text-[11px] font-medium">Personal</span>
-              <span className="text-[9.5px] text-subtle">3m ago</span>
-            </div>
-          </Card>
-
           {/* Two-up: Active Profile + System Status */}
           <div className="grid grid-cols-2 gap-3.5">
             <Card className="border-accent/30 bg-accent/[0.04]">
@@ -363,6 +340,25 @@ export function DashboardMockup({ className = "" }: { className?: string }) {
               </div>
             </Card>
           </div>
+
+          {/* SSH Identities */}
+          <Card>
+            <CardTitle title="SSH Identities" />
+            <StatRow
+              stats={[
+                { label: "Total", value: "3" },
+                { label: "Assigned", value: "2" },
+                { label: "Unassigned", value: "1" },
+              ]}
+            />
+            <div className="flex items-center gap-2 border-t border-white/[0.06] px-3.5 py-2.5">
+              <Key className="size-3.5 shrink-0 text-subtle" />
+              <span className="text-[11px] text-muted">Active identity</span>
+              <span className="font-mono text-[11px] font-medium">
+                id_ed25519_personal
+              </span>
+            </div>
+          </Card>
         </div>
       </div>
     </AppWindow>
@@ -414,7 +410,7 @@ export function RepoMappingMockup({ className = "" }: { className?: string }) {
           ))}
           <div className="flex items-center gap-2 pt-1 font-mono text-[10px] text-subtle">
             <Check className="size-3 text-success" />
-            Auto-detection enabled — new clones mapped by remote URL
+            Rules map repositories by path, remote host, or owner
           </div>
         </div>
       </div>
@@ -479,9 +475,9 @@ export function SshMockup({ className = "" }: { className?: string }) {
 
 export function SettingsMockup({ className = "" }: { className?: string }) {
   const settings = [
-    { label: "Guard commits against wrong identity", on: true },
-    { label: "Auto-switch on directory change", on: true },
-    { label: "Sync GPG signing key per profile", on: true },
+    { label: "Auto-scan repositories on startup", on: true },
+    { label: "Keep running in tray", on: true },
+    { label: "Record activity in the audit log", on: true },
     { label: "Launch at login", on: false },
   ];
   return (

@@ -35,15 +35,16 @@ export function Body() {
         profile so it activates together with that profile.
       </P>
       <Callout variant="note">
-        Supported algorithms are <strong>Ed25519</strong> and <strong>RSA</strong>.
-        Ed25519 is recommended for new keys.
+        Supported algorithms are <strong>Ed25519</strong>,{" "}
+        <strong>ECDSA</strong> (P-256, P-384, and P-521), and{" "}
+        <strong>RSA</strong> (4096-bit). Ed25519 is recommended for new keys.
       </Callout>
 
       <H2 id="generating">Generating a key</H2>
       <P>When you generate a key, GitPersona asks for:</P>
       <Ul>
         <Li>A <strong>label</strong> to identify the key.</Li>
-        <Li>An <strong>algorithm</strong> — Ed25519 or RSA.</Li>
+        <Li>An <strong>algorithm</strong> — Ed25519, ECDSA (P-256, P-384, P-521), or RSA 4096.</Li>
         <Li>An <strong>output folder</strong> and <strong>file name</strong> for the key pair.</Li>
         <Li>An optional <strong>comment</strong>.</Li>
         <Li>An optional <strong>host alias</strong> and <strong>host name</strong> for the SSH config entry.</Li>

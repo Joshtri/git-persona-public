@@ -182,7 +182,6 @@
     "documentation": "Documentation",
     "blog": "Blog",
     "changelog": "Changelog",
-    "githubReleases": "GitHub Releases",
     "privacy": "Privacy",
     "tagline": "One desktop app for all your Git identities.",
     "copyright": "© {{year}} GitPersona. All rights reserved.",
@@ -237,7 +236,6 @@
     "description": "Version {{version}} — free, no account required, no telemetry.",
     "downloadButton": "Download",
     "inDevelopment": "In development",
-    "comingSoon": "Coming soon",
-    "releaseNotes": "Release notes"
+    "comingSoon": "Coming soon"
   }
 }

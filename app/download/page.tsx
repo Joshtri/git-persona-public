@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FileText } from "@gravity-ui/icons";
 import { AnnouncementBanner } from "@/components/announcement-banner";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -107,18 +106,6 @@ export default async function DownloadPage() {
               <span aria-hidden>→</span>
             </Link>
 
-            <div className="mt-3">
-              <ButtonLink
-                href={`${site.githubUrl}/releases`}
-                variant="ghost"
-                size="sm"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FileText className="size-3.5" />
-                Release notes
-              </ButtonLink>
-            </div>
           </div>
         </section>
 

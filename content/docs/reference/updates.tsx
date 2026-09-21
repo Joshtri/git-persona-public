@@ -39,8 +39,7 @@ export function Body() {
       </Ol>
       <Callout variant="note">
         You can always download the latest build manually from the{" "}
-        <A href="/download">download page</A> or{" "}
-        <A href="https://github.com/Joshtri/git-persona/releases">GitHub Releases</A>.
+        <A href="/download">download page</A>.
       </Callout>
 
       <H2 id="offline">Offline behavior</H2>

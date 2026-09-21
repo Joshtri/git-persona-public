@@ -47,20 +47,9 @@ export default async function ChangelogPage() {
             <Reveal className="mt-16">
               <div className="card mx-auto max-w-xl rounded-2xl p-8 text-center">
                 <p className="text-sm leading-relaxed text-muted">
-                  Release history is temporarily unavailable. You can also
-                  view releases on GitHub.
+                  Release history is temporarily unavailable. Please check
+                  back later.
                 </p>
-                <div className="mt-5 flex justify-center">
-                  <ButtonLink
-                    href={`${site.githubUrl}/releases`}
-                    variant="secondary"
-                    size="sm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View releases on GitHub
-                  </ButtonLink>
-                </div>
               </div>
             </Reveal>
           ) : releases.length === 0 ? (

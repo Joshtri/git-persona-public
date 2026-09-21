@@ -13,5 +13,5 @@ export function resolveDownloadUrl(
       if (url) return url;
     }
   }
-  return `${site.githubUrl}/releases/latest`;
+  return `${site.url}/download`;
 }

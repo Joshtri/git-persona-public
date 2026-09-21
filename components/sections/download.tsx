@@ -4,7 +4,6 @@ import { Trans, useTranslation } from "react-i18next";
 import {
   Clock,
   ArrowDownToLine as DownloadIcon,
-  FileText,
 } from "@gravity-ui/icons";
 import { site } from "@/lib/site";
 import type { DownloadPlatform } from "@/lib/site";
@@ -177,16 +176,6 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
           );
         })}
       </RevealGroup>
-      <Reveal className="mt-8 flex justify-center">
-        <ButtonLink
-          href={`${site.githubUrl}/releases`}
-          variant="ghost"
-          size="sm"
-        >
-          <FileText className="size-3.5" />
-          {t("download.releaseNotes")}
-        </ButtonLink>
-      </Reveal>
     </Section>
   );
 }

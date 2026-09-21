@@ -30,9 +30,7 @@ export function Body() {
       <H2 id="download">Download</H2>
       <P>
         Get the latest build from the <A href="/download">download page</A>. Each
-        release lists the supported platforms and file formats. Release notes and
-        checksums are published alongside every version on{" "}
-        <A href="https://github.com/Joshtri/git-persona/releases">GitHub Releases</A>.
+        release lists the supported platforms and file formats.
       </P>
       <Callout variant="note">
         GitPersona supports <strong>Windows</strong>, <strong>Linux</strong>, and{" "}

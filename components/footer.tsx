@@ -25,7 +25,6 @@ export function Footer({ version }: { version?: string }) {
         { labelKey: "footer.documentation", href: "/docs" },
         { labelKey: "footer.blog", href: "/blog" },
         { labelKey: "footer.changelog", href: "/changelog" },
-        { labelKey: "footer.githubReleases", href: `${site.githubUrl}/releases`, external: true },
       ],
     },
     {

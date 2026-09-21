@@ -182,7 +182,6 @@
     "documentation": "Dokumentasi",
     "blog": "Blog",
     "changelog": "Changelog",
-    "githubReleases": "Rilis GitHub",
     "privacy": "Privasi",
     "tagline": "Satu aplikasi desktop untuk semua identitas Git kamu.",
     "copyright": "© {{year}} GitPersona. Hak cipta dilindungi.",
@@ -237,7 +236,6 @@
     "description": "Versi {{version}} — gratis, tanpa akun, tanpa telemetri.",
     "downloadButton": "Unduh",
     "inDevelopment": "Dalam pengembangan",
-    "comingSoon": "Segera hadir",
-    "releaseNotes": "Catatan rilis"
+    "comingSoon": "Segera hadir"
   }
 }

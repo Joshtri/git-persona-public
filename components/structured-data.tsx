@@ -15,7 +15,7 @@ const softwareApplication = {
     price: "0",
     priceCurrency: "USD",
   },
-  downloadUrl: `${site.githubUrl}/releases/latest`,
+  downloadUrl: `${site.url}/download`,
   featureList: [
     "Multiple Git profile management",
     "One-click Git identity switching",

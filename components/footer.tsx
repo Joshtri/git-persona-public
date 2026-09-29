@@ -67,7 +67,7 @@ export function Footer({ version }: { version?: string }) {
               {site.tagline} {t("footer.tagline")}
             </p>
             <p className="font-mono text-xs text-subtle">
-              v{displayVersion} — Windows · Linux
+              v{displayVersion} — Windows · macOS · Linux
             </p>
           </div>
 

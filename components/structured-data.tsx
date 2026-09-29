@@ -41,13 +41,16 @@ const faqPage = {
   })),
 };
 
-export function StructuredData() {
+export function StructuredData({ version }: { version?: string }) {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(softwareApplication),
+          __html: JSON.stringify({
+            ...softwareApplication,
+            softwareVersion: version ?? site.version,
+          }),
         }}
       />
       <script

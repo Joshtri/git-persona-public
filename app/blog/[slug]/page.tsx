@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "@gravity-ui/icons";
-import { Footer } from "@/components/footer";
+import { SiteFooter } from "@/components/site-footer";
 import { Header } from "@/components/header";
 import { ArticleCard } from "@/components/blog/article-card";
 import { fetchBlogPosts } from "@/lib/api";
@@ -191,7 +191,7 @@ export default async function BlogArticlePage({
           </div>
         ) : null}
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

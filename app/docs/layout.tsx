@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Footer } from "@/components/footer";
+import { SiteFooter } from "@/components/site-footer";
 import { Header } from "@/components/header";
 import { DocMobileNav } from "@/components/docs/doc-mobile-nav";
 import { DocNav } from "@/components/docs/doc-sidebar";
@@ -32,7 +32,7 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

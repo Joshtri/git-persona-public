@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ReleaseCard } from "@/components/changelog/release-card";
-import { Footer } from "@/components/footer";
+import { SiteFooter } from "@/components/site-footer";
 import { Header } from "@/components/header";
 import { ButtonLink } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/badge";
@@ -72,7 +72,7 @@ export default async function ChangelogPage() {
           )}
         </Section>
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

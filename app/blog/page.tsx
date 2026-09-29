@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/footer";
+import { SiteFooter } from "@/components/site-footer";
 import { Header } from "@/components/header";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
@@ -64,7 +64,7 @@ export default async function BlogIndexPage() {
           ) : null}
         </Section>
       </main>
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

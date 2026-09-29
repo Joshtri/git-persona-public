@@ -16,10 +16,18 @@ type ApiEnvelope<T> = {
 const apiBase =
 	process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") ?? site.apiUrl;
 
-async function apiFetch<T>(path: string): Promise<T | null> {
+// Release/announcement data goes stale the moment a new version ships, so it
+// is re-checked every minute; blog content can tolerate a longer cache.
+const RELEASE_REVALIDATE = 60;
+const CONTENT_REVALIDATE = 3600;
+
+async function apiFetch<T>(
+	path: string,
+	revalidate: number = CONTENT_REVALIDATE,
+): Promise<T | null> {
 	try {
 		const res = await fetch(`${apiBase}${path}`, {
-			next: { revalidate: 3600 },
+			next: { revalidate },
 		});
 		if (!res.ok) return null;
 		const json: ApiEnvelope<T> = await res.json();
@@ -30,7 +38,10 @@ async function apiFetch<T>(path: string): Promise<T | null> {
 }
 
 export async function fetchLatestRelease(): Promise<LatestReleaseData | null> {
-	return apiFetch<LatestReleaseData>("/updates/latest?channel=stable");
+	return apiFetch<LatestReleaseData>(
+		"/updates/latest?channel=stable",
+		RELEASE_REVALIDATE,
+	);
 }
 
 // Public release history for the Changelog page. Returns `null` on any
@@ -44,11 +55,17 @@ export async function fetchReleases(
 	params.set("channel", options.channel ?? "stable");
 	if (options.limit) params.set("limit", String(options.limit));
 
-	return apiFetch<ChangelogRelease[]>(`/updates?${params.toString()}`);
+	return apiFetch<ChangelogRelease[]>(
+		`/updates?${params.toString()}`,
+		RELEASE_REVALIDATE,
+	);
 }
 
 export async function fetchAnnouncements(): Promise<Announcement[]> {
-	const data = await apiFetch<Announcement[]>("/announcements/");
+	const data = await apiFetch<Announcement[]>(
+		"/announcements/",
+		RELEASE_REVALIDATE,
+	);
 	return data ?? [];
 }
 

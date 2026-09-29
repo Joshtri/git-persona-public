@@ -18,7 +18,7 @@ export const site = {
   description:
     "GitPersona is a desktop app for managing multiple Git identities — profiles, SSH keys, credentials, and repository mappings — with automatic switching.",
   url: "https://gitpersona.dev",
-  version: "0.9.6",
+  version: "1.1.0",
   // Current temporary repository. Centralized here so all components update together.
   githubUrl: "https://github.com/Joshtri/git-persona",
   // GitPersona Server public API base URL. Used for dynamic release/announcement data.
@@ -38,19 +38,19 @@ export const site = {
   downloads: {
     windows: {
       available: true as const,
-      version: "0.9.6",
+      version: "1.1.0",
       label: "Windows 10 / 11",
       format: ".exe installer",
     },
     linux: {
       available: true as const,
-      version: "0.9.6",
+      version: "1.1.0",
       label: "Ubuntu 20.04+",
       format: ".deb / .AppImage",
     },
     macos: {
       available: true as const,
-      version: "0.9.6",
+      version: "1.1.0",
       label: "Apple Silicon (M1 / M2 / M3)",
       format: ".dmg",
     },

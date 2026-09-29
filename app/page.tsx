@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <>
-      <StructuredData />
+      <StructuredData version={release?.version} />
       <Header />
       <AnnouncementBanner announcements={announcements} />
       <main className="flex-1">

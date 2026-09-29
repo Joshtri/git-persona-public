@@ -16,6 +16,7 @@ import {
 import Image from "next/image";
 import type { ComponentType, ReactNode, SVGAttributes } from "react";
 import { AppWindow } from "./app-window";
+import { site } from "@/lib/site";
 
 type Icon = ComponentType<SVGAttributes<SVGElement>>;
 
@@ -186,7 +187,7 @@ function Sidebar({ active }: { active: SidebarView }) {
 
       {/* Footer */}
       <div className="flex items-center justify-between border-t border-white/[0.06] px-3 py-2.5">
-        <span className="text-[10px] text-subtle">v0.9.6</span>
+        <span className="text-[10px] text-subtle">v{site.version}</span>
         <span className="rounded border border-white/[0.08] bg-white/[0.03] px-1 text-[9px] text-subtle">
           ⌘K
         </span>

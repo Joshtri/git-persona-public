@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 const title = `${site.name} — Git Profile Manager for Multiple GitHub Accounts`;
 const description =
-	"Never commit with the wrong Git identity again. GitPersona manages Git profiles, SSH keys, GitHub credentials, and repository mappings — switch identities with one click. Free desktop app for Windows and Linux.";
+	"Never commit with the wrong Git identity again. GitPersona manages Git profiles, SSH keys, GitHub credentials, and repository mappings — switch identities with one click. Free desktop app for Windows, macOS, and Linux.";
 
 export const metadata: Metadata = {
 	metadataBase: new URL(site.url),

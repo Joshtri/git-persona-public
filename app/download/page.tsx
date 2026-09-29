@@ -4,10 +4,7 @@ import Link from "next/link";
 import { AnnouncementBanner } from "@/components/announcement-banner";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { WindowsIcon } from "@/components/icons";
-import { DownloadOptions } from "@/components/sections/download";
-import { WINDOWS_API_KEYS, resolveDownloadUrl } from "@/lib/download-utils";
-import { ButtonLink } from "@/components/ui/button";
+import { DownloadHeroButton, DownloadOptions } from "@/components/sections/download";
 import { fetchAnnouncements, fetchLatestRelease } from "@/lib/api";
 import { changelogHref } from "@/lib/changelog";
 import { site } from "@/lib/site";
@@ -15,12 +12,12 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Download",
   description:
-    "Download GitPersona for Windows and Linux — free, no account required, no telemetry. Manage every Git identity from one desktop app.",
+    "Download GitPersona for Windows, macOS, and Linux — free, no account required, no telemetry. Manage every Git identity from one desktop app.",
   alternates: { canonical: "/download" },
   openGraph: {
     title: `Download ${site.name}`,
     description:
-      "Get GitPersona for Windows and Linux — free, no account required.",
+      "Get GitPersona for Windows, macOS, and Linux — free, no account required.",
     url: `${site.url}/download`,
   },
 };
@@ -51,7 +48,6 @@ export default async function DownloadPage() {
 
   const displayVersion = release?.version ?? site.version;
   const updatedAt = release?.publishedAt ? formatDate(release.publishedAt) : null;
-  const windowsUrl = resolveDownloadUrl(release, WINDOWS_API_KEYS);
 
   return (
     <>
@@ -87,10 +83,7 @@ export default async function DownloadPage() {
             </h1>
 
             <div className="mt-9">
-              <ButtonLink href={windowsUrl} size="lg">
-                <WindowsIcon className="size-4" />
-                Download for Windows
-              </ButtonLink>
+              <DownloadHeroButton release={release} />
             </div>
 
             <p className="mt-5 text-sm text-subtle">

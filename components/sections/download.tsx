@@ -9,6 +9,7 @@ import { site } from "@/lib/site";
 import type { DownloadPlatform } from "@/lib/site";
 import type { Release } from "@/lib/types";
 import { resolveDownloadUrl } from "@/lib/download-utils";
+import { useDetectedOS } from "@/lib/use-detected-os";
 import { AppleIcon, TuxIcon, WindowsIcon } from "../icons";
 import { Section, SectionHeading } from "../ui/section";
 import { RevealGroup, RevealItem, Reveal } from "../ui/reveal";
@@ -26,7 +27,6 @@ type PlatformEntry = {
   Icon: IconComponent;
   chipClass: string;
   iconClass: string;
-  primary: boolean;
   platform: DownloadPlatform;
   apiKeys: string[];
   variants?: PlatformVariant[];
@@ -46,7 +46,6 @@ const platforms: PlatformEntry[] = [
     Icon: WindowsIcon,
     chipClass: "border-accent/25 bg-accent/10",
     iconClass: "text-accent-bright",
-    primary: true,
     platform: site.downloads.windows,
     apiKeys: ["windows-x86_64"],
   },
@@ -56,7 +55,6 @@ const platforms: PlatformEntry[] = [
     Icon: TuxIcon,
     chipClass: "border-amber-400/25 bg-amber-400/10",
     iconClass: "text-amber-300",
-    primary: false,
     platform: site.downloads.linux,
     apiKeys: ["linux-x86_64-deb", "linux-x86_64"],
     variants: LINUX_VARIANTS,
@@ -67,7 +65,6 @@ const platforms: PlatformEntry[] = [
     Icon: AppleIcon,
     chipClass: "border-white/10 bg-white/[0.06]",
     iconClass: "text-foreground",
-    primary: false,
     platform: site.downloads.macos,
     apiKeys: ["darwin-aarch64"],
   },
@@ -84,8 +81,22 @@ function resolveVariantUrls(
   return resolved.length > 0 ? resolved : null;
 }
 
+/** Large "Download for <OS>" button that targets the visitor's detected OS. */
+export function DownloadHeroButton({ release }: { release?: Release | null }) {
+  const { t } = useTranslation();
+  const os = useDetectedOS();
+  const { name, Icon, apiKeys } = platforms.find((p) => p.id === os) ?? platforms[0];
+  return (
+    <ButtonLink href={resolveDownloadUrl(release, apiKeys)} size="lg">
+      <Icon className="size-4" />
+      {t("hero.downloadCta", { os: name })}
+    </ButtonLink>
+  );
+}
+
 export function DownloadOptions({ release }: { release?: Release | null }) {
   const { t } = useTranslation();
+  const os = useDetectedOS();
   const displayVersion = release?.version ?? site.version;
 
   return (
@@ -106,7 +117,8 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
       />
       <RevealGroup className="mx-auto mt-14 grid max-w-4xl gap-4 sm:grid-cols-3">
         {platforms.map(
-          ({ id, name, Icon, chipClass, iconClass, primary, platform, apiKeys, variants }) => {
+          ({ id, name, Icon, chipClass, iconClass, platform, apiKeys, variants }) => {
+          const primary = id === os;
           const downloadUrl = resolveDownloadUrl(release, apiKeys);
           const variantUrls = variants ? resolveVariantUrls(release, variants) : null;
           return (

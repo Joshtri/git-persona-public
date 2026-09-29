@@ -7,7 +7,7 @@ import {
   useTransform,
 } from "motion/react";
 import { Bars as Menu, Xmark as X } from "@gravity-ui/icons";
-import { WindowsIcon } from "./icons";
+import { OSIcon } from "./os-icon";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -124,7 +124,7 @@ export function Header() {
             aria-hidden={!pastHero}
           >
             <ButtonLink href="/download" size="sm" tabIndex={pastHero ? 0 : -1}>
-              <WindowsIcon className="size-3.5" />
+              <OSIcon className="size-3.5" />
               {t("nav.download")}
             </ButtonLink>
           </div>
@@ -177,7 +177,7 @@ export function Header() {
               className="mt-2"
               onClick={() => setOpen(false)}
             >
-              <WindowsIcon className="size-3.5" />
+              <OSIcon className="size-3.5" />
               {t("nav.download")}
             </ButtonLink>
           </div>

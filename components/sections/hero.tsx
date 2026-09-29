@@ -2,12 +2,13 @@
 
 import { Trans, useTranslation } from "react-i18next";
 import { DashboardMockup } from "../mockups";
-import { WindowsIcon } from "../icons";
+import { OSIcon, useDetectedOSName } from "../os-icon";
 import { ButtonLink } from "../ui/button";
 import { Reveal } from "../ui/reveal";
 
 export function Hero() {
   const { t } = useTranslation();
+  const osName = useDetectedOSName();
 
   const stats = [
     { value: "<0.6s", labelKey: "hero.toSwitch" },
@@ -42,8 +43,8 @@ export function Hero() {
         <Reveal delay={0.16}>
           <div className="flex flex-col items-center gap-3 sm:flex-row">
             <ButtonLink href="/download" size="lg">
-              <WindowsIcon className="size-4" />
-              {t("hero.downloadCta")}
+              <OSIcon className="size-4" />
+              {t("hero.downloadCta", { os: osName })}
             </ButtonLink>
             <ButtonLink href="/docs" size="lg" variant="secondary">
               {t("hero.readDocs")}

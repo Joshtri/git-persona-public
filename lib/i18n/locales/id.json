@@ -17,7 +17,7 @@
   "hero": {
     "headline": "Jangan pernah gunakan <grad>identitas Git</grad> yang salah lagi.",
     "subheading": "Satu klik mengganti identitas, SSH key, dan kredensial — di semua repositori sekaligus.",
-    "downloadCta": "Unduh untuk Windows",
+    "downloadCta": "Unduh untuk {{os}}",
     "readDocs": "Baca dokumentasi",
     "toSwitch": "untuk berpindah",
     "configEdits": "edit konfigurasi",

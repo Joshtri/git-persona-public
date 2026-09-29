@@ -17,7 +17,7 @@
   "hero": {
     "headline": "Never use the wrong <grad>Git identity</grad> again.",
     "subheading": "One click swaps your identity, SSH keys, and credentials — across every repo at once.",
-    "downloadCta": "Download for Windows",
+    "downloadCta": "Download for {{os}}",
     "readDocs": "Read the docs",
     "toSwitch": "to switch",
     "configEdits": "config edits",

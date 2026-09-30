@@ -8,7 +8,8 @@ import {
 import { site } from "@/lib/site";
 import type { DownloadPlatform } from "@/lib/site";
 import type { Release } from "@/lib/types";
-import { resolveDownloadUrl } from "@/lib/download-utils";
+import { resolveDownloadUrl, resolvePlatformKey } from "@/lib/download-utils";
+import { trackDownload } from "@/lib/track-download";
 import { useDetectedOS } from "@/lib/use-detected-os";
 import { AppleIcon, TuxIcon, WindowsIcon } from "../icons";
 import { Section, SectionHeading } from "../ui/section";
@@ -73,11 +74,11 @@ const platforms: PlatformEntry[] = [
 function resolveVariantUrls(
   release: Release | null | undefined,
   variants: PlatformVariant[]
-): { label: string; url: string }[] | null {
+): { key: string; label: string; url: string }[] | null {
   if (!release?.platforms) return null;
   const resolved = variants
     .filter((v) => release.platforms[v.key]?.url)
-    .map((v) => ({ label: v.label, url: release.platforms[v.key].url }));
+    .map((v) => ({ key: v.key, label: v.label, url: release.platforms[v.key].url }));
   return resolved.length > 0 ? resolved : null;
 }
 
@@ -86,8 +87,17 @@ export function DownloadHeroButton({ release }: { release?: Release | null }) {
   const { t } = useTranslation();
   const os = useDetectedOS();
   const { name, Icon, apiKeys } = platforms.find((p) => p.id === os) ?? platforms[0];
+  const platformKey = resolvePlatformKey(release, apiKeys);
   return (
-    <ButtonLink href={resolveDownloadUrl(release, apiKeys)} size="lg">
+    <ButtonLink
+      href={resolveDownloadUrl(release, apiKeys)}
+      size="lg"
+      onClick={() => {
+        if (platformKey) {
+          trackDownload({ platform: platformKey, version: release?.version, source: "download-hero" });
+        }
+      }}
+    >
       <Icon className="size-4" />
       {t("hero.downloadCta", { os: name })}
     </ButtonLink>
@@ -120,6 +130,7 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
           ({ id, name, Icon, chipClass, iconClass, platform, apiKeys, variants }) => {
           const primary = id === os;
           const downloadUrl = resolveDownloadUrl(release, apiKeys);
+          const platformKey = resolvePlatformKey(release, apiKeys);
           const variantUrls = variants ? resolveVariantUrls(release, variants) : null;
           return (
             <RevealItem key={id} className="h-full">
@@ -143,10 +154,13 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
                     </p>
                     {variantUrls ? (
                       <div className="mt-5 w-full flex flex-col gap-2">
-                        {variantUrls.map(({ label, url }) => (
+                        {variantUrls.map(({ key, label, url }) => (
                           <ButtonLink
                             key={label}
                             href={url}
+                            onClick={() =>
+                              trackDownload({ platform: key, version: release?.version, source: "download-card" })
+                            }
                             variant="secondary"
                             size="sm"
                             className="w-full"
@@ -160,6 +174,11 @@ export function DownloadOptions({ release }: { release?: Release | null }) {
                       <div className="mt-5 w-full">
                         <ButtonLink
                           href={downloadUrl}
+                          onClick={() => {
+                            if (platformKey) {
+                              trackDownload({ platform: platformKey, version: release?.version, source: "download-card" });
+                            }
+                          }}
                           variant={primary ? "primary" : "secondary"}
                           size="sm"
                           className="w-full"

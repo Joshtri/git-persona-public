@@ -13,7 +13,7 @@ type ApiEnvelope<T> = {
 	data: T;
 };
 
-const apiBase =
+export const apiBase =
 	process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") ?? site.apiUrl;
 
 // Release/announcement data goes stale the moment a new version ships, so it

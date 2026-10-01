@@ -99,7 +99,9 @@ export function TermsEn() {
       <Ul>
         <Li>
           Prices are in Indonesian rupiah (IDR), and you see the amount before
-          you pay. Any amounts in US dollars on this website are estimates.
+          you pay. That amount is the final price: we don&apos;t add tax or any
+          other fee on top. Any amounts in US dollars on this website are
+          estimates.
         </Li>
         <Li>
           There are two price lists: <strong>Indonesia</strong>, for buyers
@@ -323,7 +325,9 @@ export function TermsId() {
       <Ul>
         <Li>
           Harga dalam rupiah (IDR), dan jumlahnya ditampilkan sebelum kamu
-          membayar. Jumlah dalam dolar AS di situs ini hanya perkiraan.
+          membayar. Jumlah itu adalah harga final: kami tidak menambahkan pajak
+          atau biaya lain di atasnya. Jumlah dalam dolar AS di situs ini hanya
+          perkiraan.
         </Li>
         <Li>
           Ada dua daftar harga: <strong>Indonesia</strong>, untuk pembeli yang

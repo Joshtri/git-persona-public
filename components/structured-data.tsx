@@ -1,5 +1,36 @@
 import { site } from "@/lib/site";
 import { faqs } from "@/lib/faq-data";
+import { FALLBACK_PRICING, type PricingCatalog } from "@/lib/pricing";
+
+// Free is always offered; Pro offers are only listed once Pro is on sale.
+function offers(catalog: PricingCatalog) {
+  const free = {
+    "@type": "Offer",
+    name: "Free",
+    price: "0",
+    priceCurrency: catalog.currency,
+    url: `${site.url}/pricing`,
+  };
+  if (site.pricingStatus !== "live") return free;
+  const prices = catalog.priceLists.international;
+  return [
+    free,
+    {
+      "@type": "Offer",
+      name: "Pro (monthly)",
+      price: String(prices.monthly),
+      priceCurrency: catalog.currency,
+      url: `${site.url}/pricing`,
+    },
+    {
+      "@type": "Offer",
+      name: "Pro (yearly)",
+      price: String(prices.yearly),
+      priceCurrency: catalog.currency,
+      url: `${site.url}/pricing`,
+    },
+  ];
+}
 
 const softwareApplication = {
   "@context": "https://schema.org",
@@ -10,11 +41,6 @@ const softwareApplication = {
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Windows, Linux, macOS",
   softwareVersion: site.version,
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
   downloadUrl: `${site.url}/download`,
   featureList: [
     "Multiple Git profile management",
@@ -41,7 +67,13 @@ const faqPage = {
   })),
 };
 
-export function StructuredData({ version }: { version?: string }) {
+export function StructuredData({
+  version,
+  catalog = FALLBACK_PRICING,
+}: {
+  version?: string;
+  catalog?: PricingCatalog;
+}) {
   return (
     <>
       <script
@@ -50,6 +82,7 @@ export function StructuredData({ version }: { version?: string }) {
           __html: JSON.stringify({
             ...softwareApplication,
             softwareVersion: version ?? site.version,
+            offers: offers(catalog),
           }),
         }}
       />

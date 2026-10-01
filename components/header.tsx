@@ -44,6 +44,7 @@ const NAV_LABEL_KEYS: Record<string, string> = {
   Blog: "nav.blog",
   Compare: "nav.compare",
   Roadmap: "nav.roadmap",
+  Pricing: "nav.pricing",
   Download: "nav.download",
 };
 
@@ -92,7 +93,7 @@ export function Header() {
           GitPersona
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-1 xl:flex">
           {nav.map((item) => {
             const active = isActive(item.href);
             const labelKey = NAV_LABEL_KEYS[item.label];
@@ -100,7 +101,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+                className={`whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
                   active
                     ? "bg-foreground/[0.07] text-foreground"
                     : "text-muted hover:bg-foreground/[0.04] hover:text-foreground"
@@ -112,7 +113,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 xl:flex">
           <ThemeToggle />
           <LanguageSwitcher />
           <div
@@ -131,7 +132,7 @@ export function Header() {
         </div>
 
         {/* Mobile: theme toggle + menu button + language switcher at far right */}
-        <div className="flex items-center gap-1 md:hidden">
+        <div className="flex items-center gap-1 xl:hidden">
           <ThemeToggle />
           <button
             type="button"
@@ -150,7 +151,7 @@ export function Header() {
       {open && (
         <nav
           aria-label="Mobile"
-          className="border-t border-border bg-background/95 px-6 py-4 backdrop-blur-xl md:hidden"
+          className="border-t border-border bg-background/95 px-6 py-4 backdrop-blur-xl xl:hidden"
         >
           <div className="flex flex-col gap-1">
             {nav.map((item) => {

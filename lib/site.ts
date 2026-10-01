@@ -23,6 +23,19 @@ export const site = {
   githubUrl: "https://github.com/Joshtri/git-persona",
   // GitPersona Server public API base URL. Used for dynamic release/announcement data.
   apiUrl: "https://api-gitpersona.vercel.app",
+  // Flip to "live" when the app version that enforces the Free limit and sells
+  // Pro is released. While "upcoming", /pricing says Pro is not on sale yet.
+  pricingStatus: "upcoming" as "upcoming" | "live",
+  // Facts the legal pages (/privacy, /terms, /refund, /contact) read. Leave a
+  // field empty until it's real — the pages show a "coming soon" placeholder
+  // instead of inventing a value. Fill both before submitting to DOKU.
+  legal: {
+    operator: "Arpakhsad Joshtri Sugiatma Lenggu", // legal full name (KTP), must match DOKU
+    operatorKnownAs: "Joshtri Lenggu",
+    contactEmail: "gitpersona@outlook.com",
+    refundDays: 7,
+    lastUpdated: "2026-10-01",
+  },
   keywords: [
     "Git Profile Manager",
     "GitHub Multiple Accounts",
@@ -59,7 +72,7 @@ export const site = {
     shipped: [
       {
         title: "Git profile management",
-        body: "Create, edit, and switch unlimited identities — name, email, and GPG signing key bundled per profile.",
+        body: "Create, edit, and switch Git identities — name, email, and GPG signing key bundled per profile.",
       },
       {
         title: "SSH key manager",
@@ -118,5 +131,6 @@ export const nav = [
   { label: "Blog", href: "/blog" },
   { label: "Compare", href: "/compare" },
   { label: "Roadmap", href: "/roadmap" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Download", href: "/download" },
 ] as const;

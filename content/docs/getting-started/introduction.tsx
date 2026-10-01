@@ -1,6 +1,7 @@
 import type { DocMeta } from "@/lib/docs/types";
 import { A, H2, Lead, Li, P, Ul } from "@/components/docs/prose";
 import { Callout } from "@/components/docs/callout";
+import { site } from "@/lib/site";
 
 export const meta: DocMeta = {
   slug: "",
@@ -90,6 +91,12 @@ export function Body() {
         GitPersona is local-first. Core functionality — creating profiles,
         switching identities, managing keys, applying rules — works fully
         offline and requires no account.
+        {site.pricingStatus === "live" ? (
+          <>
+            {" "}Signing in is optional and only used for Pro; see{" "}
+            <A href="/docs/account/plans-and-billing">Plans and billing</A>.
+          </>
+        ) : null}
       </Callout>
 
       <H2 id="what-it-is-not">What GitPersona is not</H2>
@@ -113,7 +120,7 @@ export function Body() {
       <Ul>
         <Li>
           <A href="/docs/getting-started/installation">Install GitPersona</A> on
-          Windows or Linux.
+          Windows, macOS, or Linux.
         </Li>
         <Li>
           <A href="/docs/getting-started/first-profile">

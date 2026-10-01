@@ -1,11 +1,12 @@
 import type { DocMeta } from "@/lib/docs/types";
 import { A, H2, Lead, P } from "@/components/docs/prose";
+import { site } from "@/lib/site";
 
 export const meta: DocMeta = {
   slug: "support/faq",
   title: "FAQ",
   description:
-    "Answers to common questions about GitPersona — how it relates to Git, multiple accounts, data storage, and offline use.",
+    "Answers to common questions about GitPersona — how it relates to Git, multiple accounts, data storage, offline use, and plans.",
   category: "support",
   order: 2,
   toc: [
@@ -14,6 +15,8 @@ export const meta: DocMeta = {
     { id: "multiple-accounts", text: "Can I use multiple accounts?" },
     { id: "data-uploaded", text: "Is my data uploaded anywhere?" },
     { id: "offline", text: "Does it work offline?" },
+    { id: "free", text: "Is GitPersona free?" },
+    { id: "account", text: "Do I need an account?" },
     { id: "platforms", text: "Which platforms are supported?" },
   ],
 };
@@ -54,10 +57,13 @@ export function Body() {
 
       <H2 id="data-uploaded">Is my data uploaded anywhere?</H2>
       <P>
-        No. GitPersona is local-first: profiles and credential metadata stay on
-        your machine, and secrets live in your OS credential vault. There is no
-        account required for core functionality. See{" "}
-        <A href="/docs/security/credential-storage">Credential storage</A>.
+        No. Profiles, keys, credential metadata, and repository mappings stay on
+        your machine, and secrets live in your OS credential vault (see{" "}
+        <A href="/docs/security/credential-storage">Credential storage</A>).
+        GitPersona only goes online to check for updates and announcements and,
+        if you choose to sign in, to verify your plan. Signing in stores your
+        email, your plan, and the devices you sign in on (computer name, OS, and
+        app version). There is no telemetry.
       </P>
 
       <H2 id="offline">Does it work offline?</H2>
@@ -67,9 +73,26 @@ export function Body() {
         <A href="/docs/reference/updates">updates</A> needs a network connection.
       </P>
 
+      <H2 id="free">Is GitPersona free?</H2>
+      <P>
+        Yes. The Free plan includes every feature for up to 3 profiles and never
+        expires. Pro removes the profile limit
+        {site.pricingStatus === "live" ? "" : " and is launching soon"}. See{" "}
+        <A href="/docs/account/plans-and-billing">Plans and billing</A> and{" "}
+        <A href="/pricing">Pricing</A>.
+      </P>
+
+      <H2 id="account">Do I need an account?</H2>
+      <P>
+        No. GitPersona works fully without an account, including offline.
+        Signing in with an email code is only needed to start a Pro trial or buy
+        Pro.
+      </P>
+
       <H2 id="platforms">Which platforms are supported?</H2>
       <P>
-        GitPersona runs on <strong>Windows</strong> and <strong>Linux</strong>.
+        GitPersona runs on <strong>Windows</strong>, <strong>macOS</strong>, and{" "}
+        <strong>Linux</strong>.
         See <A href="/docs/getting-started/installation">Installation</A> for
         per-platform steps.
       </P>

@@ -1,5 +1,6 @@
 import { site } from "./site";
 import type { BlogEntry } from "./blog/types";
+import { FALLBACK_PRICING, type PricingCatalog } from "./pricing";
 import type {
 	Announcement,
 	ApiBlogPost,
@@ -20,6 +21,8 @@ export const apiBase =
 // is re-checked every minute; blog content can tolerate a longer cache.
 const RELEASE_REVALIDATE = 60;
 const CONTENT_REVALIDATE = 3600;
+// The Founder offer has a hard end date, so prices refresh within minutes.
+const PRICING_REVALIDATE = 300;
 
 async function apiFetch<T>(
 	path: string,
@@ -59,6 +62,19 @@ export async function fetchReleases(
 		`/updates?${params.toString()}`,
 		RELEASE_REVALIDATE,
 	);
+}
+
+// Never null: falls back to the local price sheet (Founder offer hidden) so
+// the Pricing page always renders.
+export async function fetchPricing(): Promise<PricingCatalog> {
+	const data = await apiFetch<PricingCatalog>(
+		"/client/pricing",
+		PRICING_REVALIDATE,
+	);
+	// An older server omits newer Free limits; keep the fallback's for those.
+	return data
+		? { ...data, free: { ...FALLBACK_PRICING.free, ...data.free } }
+		: FALLBACK_PRICING;
 }
 
 export async function fetchAnnouncements(): Promise<Announcement[]> {

@@ -40,6 +40,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${site.url}/pricing`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${site.url}/compare`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -63,6 +69,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.7,
     },
+    ...["/privacy", "/terms", "/refund", "/contact"].map((path) => ({
+      url: `${site.url}${path}`,
+      lastModified: new Date(site.legal.lastUpdated),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    })),
     ...docs,
     ...blog,
   ];

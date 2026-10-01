@@ -19,6 +19,8 @@ import * as credentialStorage from "@/content/docs/security/credential-storage";
 import * as activityLog from "@/content/docs/reference/activity-log";
 import * as settings from "@/content/docs/reference/settings";
 import * as updates from "@/content/docs/reference/updates";
+// Account & Billing
+import * as plansAndBilling from "@/content/docs/account/plans-and-billing";
 // Support
 import * as troubleshooting from "@/content/docs/support/troubleshooting";
 import * as faq from "@/content/docs/support/faq";
@@ -31,6 +33,7 @@ const categoryTitles: { id: CategoryId; title: string }[] = [
   { id: "automation", title: "Automation" },
   { id: "security", title: "Security" },
   { id: "reference", title: "Reference" },
+  { id: "account", title: "Account & Billing" },
   { id: "support", title: "Support" },
 ];
 
@@ -49,6 +52,7 @@ const modules: DocModule[] = [
   activityLog,
   settings,
   updates,
+  plansAndBilling,
   troubleshooting,
   faq,
 ];

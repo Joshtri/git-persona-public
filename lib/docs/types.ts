@@ -15,6 +15,7 @@ export type CategoryId =
   | "automation"
   | "security"
   | "reference"
+  | "account"
   | "support";
 
 /** Typed front-matter for a documentation page. Authored alongside the page body

@@ -10,6 +10,7 @@
     "blog": "Blog",
     "compare": "Compare",
     "roadmap": "Roadmap",
+    "pricing": "Pricing",
     "download": "Download",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -89,7 +90,7 @@
     },
     "offlineFirst": {
       "title": "Offline first",
-      "body": "No account, no server, no telemetry."
+      "body": "No account needed. No telemetry."
     },
     "secureStorage": {
       "title": "Secure local storage",
@@ -159,7 +160,7 @@
       },
       {
         "q": "Is my data uploaded anywhere?",
-        "a": "No. GitPersona is local-first: profiles, keys, and tokens stay on your machine, secured by your OS keychain. There's no account, no server, and no telemetry. The upcoming Cloud Sync feature will be optional and end-to-end encrypted."
+        "a": "No. Your profiles, keys, tokens, and repository mappings never leave your machine, and secrets stay in your OS keychain. GitPersona only goes online to check for updates and announcements and, if you choose to sign in, to verify your plan. Signing in stores your email, your plan, and the devices you sign in on (computer name, OS, and app version). There's no telemetry."
       },
       {
         "q": "Does it work offline?",
@@ -167,9 +168,17 @@
       },
       {
         "q": "Is it free to use?",
-        "a": "Yes — GitPersona is free to download and use. No account required, no subscription, no telemetry."
+        "a": "Yes. The Free plan includes every feature for up to 3 Git identities, needs no account, and never expires. {{proStatus}}"
+      },
+      {
+        "q": "Do I need an account?",
+        "a": "No. GitPersona works fully without an account, including offline. Signing in, with a one-time code sent to your email, is only needed to start a Pro trial or buy Pro."
       }
-    ]
+    ],
+    "proStatus": {
+      "upcoming": "Pro, for people who need more identities, is launching soon, and nothing you set up before then will ever be locked. See Pricing for details.",
+      "live": "If you need more identities, Pro removes the limit. See Pricing for details."
+    }
   },
   "footer": {
     "product": "Product",
@@ -182,7 +191,11 @@
     "documentation": "Documentation",
     "blog": "Blog",
     "changelog": "Changelog",
+    "pricing": "Pricing",
     "privacy": "Privacy",
+    "terms": "Terms",
+    "refund": "Refund policy",
+    "contact": "Contact",
     "tagline": "One desktop app for all your Git identities.",
     "copyright": "© {{year}} GitPersona. All rights reserved.",
     "builtFor": "Built for developers who wear more than one hat."
@@ -214,7 +227,7 @@
     "availableNow": "Available now",
     "comingSoon": "Coming soon",
     "shipped": [
-      { "title": "Git profile management", "body": "Create, edit, and switch unlimited identities — name, email, and GPG signing key bundled per profile." },
+      { "title": "Git profile management", "body": "Create, edit, and switch Git identities — name, email, and GPG signing key bundled per profile." },
       { "title": "SSH key manager", "body": "Import, generate, and assign SSH keys per profile. Host aliases managed automatically." },
       { "title": "Credential vault", "body": "HTTPS tokens stored in your OS keychain, scoped per profile. Nothing in plaintext." },
       { "title": "Repository mapping", "body": "Bind folders to profiles. Enter a repository — the right identity is already active." },
@@ -237,5 +250,171 @@
     "downloadButton": "Download",
     "inDevelopment": "In development",
     "comingSoon": "Coming soon"
+  },
+  "pricing": {
+    "eyebrow": "Pricing",
+    "title": "Free for most developers. <grad>Pro</grad> when you wear more hats.",
+    "description": "Free includes every feature for up to {{profiles}} Git identities. Pro removes the limit for freelancers, consultants, and anyone working across many clients.",
+    "upcoming": "Pro is launching soon. Free stays free, and nothing you set up before launch will ever be locked.",
+    "periodLabel": "Billing period",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save {{percent}}%",
+    "regionLabel": "Price list",
+    "international": "International",
+    "indonesia": "Indonesia",
+    "perMonth": "/ month",
+    "perYear": "/ year",
+    "oneTime": "one time",
+    "forever": "forever",
+    "usd": "≈ ${{amount}}",
+    "free": {
+      "name": "Free",
+      "tagline": "For developers with a few identities.",
+      "cta": "Download free",
+      "features": [
+        "Up to {{profiles}} Git identities",
+        "Up to {{repos}} pinned repositories per identity",
+        "SSH keys and HTTPS credentials",
+        "Desktop app and full CLI",
+        "No account needed",
+        "Works fully offline"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "badge": "Unlimited identities",
+      "tagline": "For freelancers, consultants, and multi-client work.",
+      "features": [
+        "Unlimited Git identities",
+        "Unlimited pinned repositories",
+        "Everything in Free",
+        "Up to {{devices}} devices per account",
+        "{{days}}-day free trial, no card needed",
+        "One sign-in for the desktop app and CLI"
+      ]
+    },
+    "founder": {
+      "name": "Founder Lifetime",
+      "badge": "Launch offer",
+      "tagline": "Pro for life, for early supporters.",
+      "until": "Available until {{date}}",
+      "features": [
+        "Everything in Pro, for life",
+        "Pay once, never renew",
+        "Sold only during the launch window"
+      ]
+    },
+    "ctaLive": "Download and upgrade in the app",
+    "ctaUpcoming": "Download free",
+    "noteLive": "Upgrade from Settings → Account, or run gitpersona upgrade.",
+    "noteUpcoming": "Pro will be available from inside the app at launch.",
+    "includedTitle": "Included on every plan",
+    "included": [
+      "Unlimited rules and repository groups",
+      "Unlimited SSH keys and HTTPS credentials",
+      "One-click global switching",
+      "Secrets kept in your OS keychain",
+      "Activity log and command palette"
+    ],
+    "compareTitle": "Free vs <grad>Pro</grad>",
+    "compareFeature": "Feature",
+    "compareRows": {
+      "identities": "Git identities",
+      "pins": "Pinned repositories",
+      "rules": "Rules, groups, and tracked repositories",
+      "keys": "SSH keys and HTTPS credentials",
+      "cli": "Desktop app and CLI",
+      "account": "Account",
+      "devices": "Devices",
+      "offline": "Works offline",
+      "trial": "Free trial"
+    },
+    "compareValues": {
+      "upTo": "Up to {{count}}",
+      "perIdentity": "Up to {{count}} per identity",
+      "unlimited": "Unlimited",
+      "notNeeded": "Not needed",
+      "emailSignIn": "Email sign-in",
+      "anyMachine": "Any machine",
+      "devicesPerAccount": "Up to {{count}} per account",
+      "always": "Always",
+      "offlineGrace": "Up to 30 days between license checks",
+      "trialDays": "{{count}} days, no card"
+    },
+    "howTitle": "How upgrading <grad>works</grad>",
+    "how": [
+      {
+        "title": "Install GitPersona",
+        "body": "Download the app or the CLI and start on Free right away. No account needed."
+      },
+      {
+        "title": "Sign in with your email",
+        "body": "In Settings → Account, or with gitpersona login. Type the 6-digit code we email you. No password."
+      },
+      {
+        "title": "Pay on a secure page",
+        "body": "Pick a plan in the app. Checkout opens in your browser on DOKU's hosted payment page."
+      },
+      {
+        "title": "Pro unlocks",
+        "body": "Back in the app, open Settings → Account (or run gitpersona plan) and Pro is active for the desktop app and CLI."
+      }
+    ],
+    "programsTitle": "Free Pro for students and open source",
+    "programsBody": "Students and maintainers of active open-source projects will get Pro at no cost. Applications open when Pro launches.",
+    "billingNote": "Prices are in Indonesian rupiah (IDR). USD amounts are estimates; if your card is billed in another currency, your bank converts the charge and may add a fee. Payments are processed by DOKU.",
+    "faqEyebrow": "Billing FAQ",
+    "faqTitle": "Plans and billing, <grad>answered</grad>.",
+    "faq": [
+      {
+        "q": "Do I need an account?",
+        "a": "Not for Free. Free works signed out and fully offline. You only sign in, with a one-time code sent to your email, to start a trial or buy Pro."
+      },
+      {
+        "q": "What counts toward the Free limit?",
+        "a": "Git identities (profiles) and pinned repositories. Free includes {{profiles}} identities and up to {{repos}} pinned repositories per identity. Repositories you only scan don't count, and rules, SSH keys, credentials, and everything else are unlimited on every plan."
+      },
+      {
+        "q": "I already use GitPersona. Will anything be locked?",
+        "a": "No. Everything you set up before Pro launches keeps working on Free, including profiles and pinned repositories beyond the Free limits. The limits only apply to new ones."
+      },
+      {
+        "q": "What happens when Pro ends?",
+        "a": "Nothing is deleted. You choose which {{profiles}} profiles stay active; the rest become read-only until you renew. Repositories already pinned keep their identity in .git/config."
+      },
+      {
+        "q": "Does Pro renew automatically?",
+        "a": "No. Pro is prepaid for a month or a year, and you buy again to extend it. Renewing early adds to the time you have left, so you never lose days."
+      },
+      {
+        "q": "How many devices can use Pro?",
+        "a": "Up to {{devices}} per account. The desktop app and the CLI on the same machine count as one device. You can deactivate a device from Settings → Account."
+      },
+      {
+        "q": "Does Pro work offline?",
+        "a": "Yes. GitPersona checks your license in the background and keeps Pro active for up to 30 days without a connection."
+      },
+      {
+        "q": "Can I use Pro with only the CLI?",
+        "a": "Yes. Run gitpersona login to sign in, gitpersona upgrade to buy, and gitpersona plan to see your plan. Signing in on the CLI also signs in the desktop app on that machine."
+      },
+      {
+        "q": "Which price list applies to me?",
+        "a": "The Indonesia price list is for buyers billed in Indonesia. Everyone else pays the International price. You choose when you check out."
+      },
+      {
+        "q": "Can I get a refund?",
+        "a": "Yes. You can get a full refund within {{refundDays}} days of purchase, for any reason. See the Refund Policy."
+      }
+    ],
+    "legalLinks": {
+      "terms": "Terms of Service",
+      "refund": "Refund Policy",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "legal": {
+    "lastUpdated": "Last updated {{date}}"
   }
 }

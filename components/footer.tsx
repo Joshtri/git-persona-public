@@ -14,6 +14,7 @@ export function Footer({ version }: { version?: string }) {
       headingKey: "footer.product",
       links: [
         { labelKey: "footer.features", href: "/features" },
+        { labelKey: "footer.pricing", href: "/pricing" },
         { labelKey: "footer.comparison", href: "/compare" },
         { labelKey: "footer.roadmap", href: "/roadmap" },
         { labelKey: "footer.download", href: "/download" },
@@ -31,6 +32,9 @@ export function Footer({ version }: { version?: string }) {
       headingKey: "footer.legal",
       links: [
         { labelKey: "footer.privacy", href: "/privacy" },
+        { labelKey: "footer.terms", href: "/terms" },
+        { labelKey: "footer.refund", href: "/refund" },
+        { labelKey: "footer.contact", href: "/contact" },
       ],
     },
   ];

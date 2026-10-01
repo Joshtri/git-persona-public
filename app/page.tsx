@@ -10,14 +10,18 @@ import { Problem } from "@/components/sections/problem";
 import { Screenshots } from "@/components/sections/screenshots";
 import { Workflow } from "@/components/sections/workflow";
 import { StructuredData } from "@/components/structured-data";
+import { fetchPricing } from "@/lib/api";
 import { getSiteData } from "@/lib/page-data";
 
 export default async function Home() {
-  const { release, announcements } = await getSiteData();
+  const [{ release, announcements }, catalog] = await Promise.all([
+    getSiteData(),
+    fetchPricing(),
+  ]);
 
   return (
     <>
-      <StructuredData version={release?.version} />
+      <StructuredData version={release?.version} catalog={catalog} />
       <Header />
       <AnnouncementBanner announcements={announcements} />
       <main className="flex-1">

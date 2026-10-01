@@ -10,6 +10,7 @@
     "blog": "Blog",
     "compare": "Perbandingan",
     "roadmap": "Roadmap",
+    "pricing": "Harga",
     "download": "Unduh",
     "openMenu": "Buka menu",
     "closeMenu": "Tutup menu"
@@ -89,7 +90,7 @@
     },
     "offlineFirst": {
       "title": "Utamakan offline",
-      "body": "Tanpa akun, tanpa server, tanpa telemetri."
+      "body": "Tanpa perlu akun. Tanpa telemetri."
     },
     "secureStorage": {
       "title": "Penyimpanan lokal yang aman",
@@ -159,7 +160,7 @@
       },
       {
         "q": "Apakah data saya diunggah ke mana pun?",
-        "a": "Tidak. GitPersona mengutamakan lokal: profil, key, dan token tetap di mesinmu, diamankan oleh keychain OS. Tidak ada akun, tidak ada server, tidak ada telemetri. Fitur Cloud Sync yang akan datang bersifat opsional dan terenkripsi end-to-end."
+        "a": "Tidak. Profil, key, token, dan pemetaan repositorimu tidak pernah meninggalkan mesinmu, dan rahasia tetap di keychain OS. GitPersona hanya online untuk memeriksa pembaruan dan pengumuman, dan, jika kamu memilih masuk, untuk memverifikasi paketmu. Masuk akan menyimpan email, paket, dan perangkat tempat kamu masuk (nama komputer, OS, dan versi aplikasi). Tidak ada telemetri."
       },
       {
         "q": "Apakah bisa digunakan offline?",
@@ -167,9 +168,17 @@
       },
       {
         "q": "Apakah gratis untuk digunakan?",
-        "a": "Ya — GitPersona gratis untuk diunduh dan digunakan. Tidak perlu akun, tidak ada langganan, tidak ada telemetri."
+        "a": "Ya. Paket Free berisi semua fitur untuk hingga 3 identitas Git, tanpa akun, dan tidak pernah kedaluwarsa. {{proStatus}}"
+      },
+      {
+        "q": "Apakah saya perlu akun?",
+        "a": "Tidak. GitPersona berjalan penuh tanpa akun, termasuk secara offline. Masuk, dengan kode sekali pakai yang dikirim ke email, hanya diperlukan untuk memulai trial Pro atau membeli Pro."
       }
-    ]
+    ],
+    "proStatus": {
+      "upcoming": "Pro, untuk yang butuh lebih banyak identitas, akan segera hadir, dan semua yang kamu siapkan sebelumnya tidak akan pernah dikunci. Lihat halaman Harga untuk detailnya.",
+      "live": "Jika butuh lebih banyak identitas, Pro menghapus batasnya. Lihat halaman Harga untuk detailnya."
+    }
   },
   "footer": {
     "product": "Produk",
@@ -182,7 +191,11 @@
     "documentation": "Dokumentasi",
     "blog": "Blog",
     "changelog": "Changelog",
+    "pricing": "Harga",
     "privacy": "Privasi",
+    "terms": "Ketentuan",
+    "refund": "Pengembalian dana",
+    "contact": "Kontak",
     "tagline": "Satu aplikasi desktop untuk semua identitas Git kamu.",
     "copyright": "© {{year}} GitPersona. Hak cipta dilindungi.",
     "builtFor": "Dibuat untuk developer yang punya lebih dari satu peran."
@@ -214,7 +227,7 @@
     "availableNow": "Tersedia sekarang",
     "comingSoon": "Segera hadir",
     "shipped": [
-      { "title": "Manajemen profil Git", "body": "Buat, edit, dan ganti identitas tanpa batas — nama, email, dan kunci GPG signing tergabung per profil." },
+      { "title": "Manajemen profil Git", "body": "Buat, edit, dan ganti identitas Git — nama, email, dan kunci GPG signing tergabung per profil." },
       { "title": "Manajemen SSH key", "body": "Impor, buat, dan pasang SSH key per profil. Host alias dikelola secara otomatis." },
       { "title": "Brankas kredensial", "body": "Token HTTPS disimpan di keychain OS, terikat per profil. Tidak ada yang plaintext." },
       { "title": "Pemetaan repositori", "body": "Hubungkan folder ke profil. Masuk ke repositori — identitas yang tepat sudah aktif." },
@@ -237,5 +250,171 @@
     "downloadButton": "Unduh",
     "inDevelopment": "Dalam pengembangan",
     "comingSoon": "Segera hadir"
+  },
+  "pricing": {
+    "eyebrow": "Harga",
+    "title": "Gratis untuk kebanyakan developer. <grad>Pro</grad> saat perannya makin banyak.",
+    "description": "Paket Free sudah berisi semua fitur untuk hingga {{profiles}} identitas Git. Pro menghapus batas itu untuk freelancer, konsultan, dan siapa pun yang bekerja dengan banyak klien.",
+    "upcoming": "Pro akan segera hadir. Free tetap gratis, dan semua yang kamu siapkan sebelum peluncuran tidak akan pernah dikunci.",
+    "periodLabel": "Periode tagihan",
+    "monthly": "Bulanan",
+    "yearly": "Tahunan",
+    "save": "Hemat {{percent}}%",
+    "regionLabel": "Daftar harga",
+    "international": "Internasional",
+    "indonesia": "Indonesia",
+    "perMonth": "/ bulan",
+    "perYear": "/ tahun",
+    "oneTime": "sekali bayar",
+    "forever": "selamanya",
+    "usd": "≈ ${{amount}}",
+    "free": {
+      "name": "Free",
+      "tagline": "Untuk developer dengan beberapa identitas.",
+      "cta": "Unduh gratis",
+      "features": [
+        "Hingga {{profiles}} identitas Git",
+        "Maksimal {{repos}} repositori dipin per identitas",
+        "SSH key dan kredensial HTTPS",
+        "Aplikasi desktop dan CLI lengkap",
+        "Tanpa akun",
+        "Berjalan penuh secara offline"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "badge": "Identitas tanpa batas",
+      "tagline": "Untuk freelancer, konsultan, dan kerja lintas klien.",
+      "features": [
+        "Identitas Git tanpa batas",
+        "Repositori dipin tanpa batas",
+        "Semua yang ada di Free",
+        "Hingga {{devices}} perangkat per akun",
+        "Trial gratis {{days}} hari, tanpa kartu",
+        "Sekali masuk untuk aplikasi desktop dan CLI"
+      ]
+    },
+    "founder": {
+      "name": "Founder Lifetime",
+      "badge": "Penawaran peluncuran",
+      "tagline": "Pro seumur hidup, untuk pendukung awal.",
+      "until": "Tersedia sampai {{date}}",
+      "features": [
+        "Semua fitur Pro, seumur hidup",
+        "Bayar sekali, tanpa perpanjangan",
+        "Hanya dijual selama masa peluncuran"
+      ]
+    },
+    "ctaLive": "Unduh lalu upgrade di aplikasi",
+    "ctaUpcoming": "Unduh gratis",
+    "noteLive": "Upgrade dari Settings → Account, atau jalankan gitpersona upgrade.",
+    "noteUpcoming": "Pro akan tersedia langsung dari aplikasi saat peluncuran.",
+    "includedTitle": "Tersedia di semua paket",
+    "included": [
+      "Rule dan grup repositori tanpa batas",
+      "SSH key dan kredensial HTTPS tanpa batas",
+      "Pergantian identitas global sekali klik",
+      "Rahasia disimpan di keychain sistem operasi",
+      "Log aktivitas dan command palette"
+    ],
+    "compareTitle": "Free vs <grad>Pro</grad>",
+    "compareFeature": "Fitur",
+    "compareRows": {
+      "identities": "Identitas Git",
+      "pins": "Repositori yang dipin",
+      "rules": "Rule, grup, dan repositori terlacak",
+      "keys": "SSH key dan kredensial HTTPS",
+      "cli": "Aplikasi desktop dan CLI",
+      "account": "Akun",
+      "devices": "Perangkat",
+      "offline": "Berjalan offline",
+      "trial": "Trial gratis"
+    },
+    "compareValues": {
+      "upTo": "Hingga {{count}}",
+      "perIdentity": "Hingga {{count}} per identitas",
+      "unlimited": "Tanpa batas",
+      "notNeeded": "Tidak perlu",
+      "emailSignIn": "Masuk lewat email",
+      "anyMachine": "Mesin mana pun",
+      "devicesPerAccount": "Hingga {{count}} per akun",
+      "always": "Selalu",
+      "offlineGrace": "Hingga 30 hari antar pengecekan lisensi",
+      "trialDays": "{{count}} hari, tanpa kartu"
+    },
+    "howTitle": "Cara <grad>upgrade</grad>",
+    "how": [
+      {
+        "title": "Pasang GitPersona",
+        "body": "Unduh aplikasinya atau CLI-nya dan langsung pakai Free. Tanpa akun."
+      },
+      {
+        "title": "Masuk dengan email",
+        "body": "Lewat Settings → Account, atau dengan gitpersona login. Ketik kode 6 digit yang kami kirim ke email-mu. Tanpa password."
+      },
+      {
+        "title": "Bayar di halaman yang aman",
+        "body": "Pilih paket di aplikasi. Checkout terbuka di browser, di halaman pembayaran DOKU."
+      },
+      {
+        "title": "Pro aktif",
+        "body": "Kembali ke aplikasi, buka Settings → Account (atau jalankan gitpersona plan), dan Pro aktif untuk aplikasi desktop dan CLI."
+      }
+    ],
+    "programsTitle": "Pro gratis untuk pelajar dan open source",
+    "programsBody": "Pelajar dan maintainer proyek open source yang aktif akan mendapat Pro tanpa biaya. Pendaftaran dibuka saat Pro diluncurkan.",
+    "billingNote": "Harga dalam rupiah (IDR). Nominal USD hanya perkiraan; jika kartumu ditagih dalam mata uang lain, bank akan mengonversi tagihannya dan mungkin mengenakan biaya. Pembayaran diproses oleh DOKU.",
+    "faqEyebrow": "FAQ tagihan",
+    "faqTitle": "Paket dan tagihan, <grad>terjawab</grad>.",
+    "faq": [
+      {
+        "q": "Apakah saya perlu akun?",
+        "a": "Tidak untuk Free. Free berjalan tanpa masuk dan sepenuhnya offline. Kamu hanya perlu masuk, dengan kode sekali pakai yang dikirim ke email, untuk memulai trial atau membeli Pro."
+      },
+      {
+        "q": "Apa saja yang dihitung dalam batas Free?",
+        "a": "Identitas Git (profil) dan repositori yang dipin. Free mencakup {{profiles}} profil dan maksimal {{repos}} repositori dipin per profil. Repositori yang hanya dipindai tidak dihitung, sedangkan rule, SSH key, kredensial, dan semua hal lain tanpa batas di setiap paket."
+      },
+      {
+        "q": "Saya sudah memakai GitPersona. Apakah ada yang akan dikunci?",
+        "a": "Tidak. Semua yang kamu siapkan sebelum Pro diluncurkan tetap berjalan di Free, termasuk profil dan repositori dipin yang melebihi batas Free. Batas hanya berlaku untuk yang baru."
+      },
+      {
+        "q": "Apa yang terjadi saat Pro berakhir?",
+        "a": "Tidak ada yang dihapus. Kamu memilih {{profiles}} profil yang tetap aktif; sisanya menjadi read-only sampai kamu memperpanjang. Repositori yang sudah dipin tetap memakai identitasnya di .git/config."
+      },
+      {
+        "q": "Apakah Pro diperpanjang otomatis?",
+        "a": "Tidak. Pro dibayar di muka untuk satu bulan atau satu tahun, dan kamu membeli lagi untuk memperpanjang. Memperpanjang lebih awal menambah sisa waktumu, jadi tidak ada hari yang hilang."
+      },
+      {
+        "q": "Berapa perangkat yang bisa memakai Pro?",
+        "a": "Hingga {{devices}} per akun. Aplikasi desktop dan CLI di mesin yang sama dihitung satu perangkat. Kamu bisa menonaktifkan perangkat dari Settings → Account."
+      },
+      {
+        "q": "Apakah Pro bisa dipakai offline?",
+        "a": "Bisa. GitPersona memeriksa lisensimu di latar belakang dan Pro tetap aktif hingga 30 hari tanpa koneksi."
+      },
+      {
+        "q": "Bisakah memakai Pro hanya dengan CLI?",
+        "a": "Bisa. Jalankan gitpersona login untuk masuk, gitpersona upgrade untuk membeli, dan gitpersona plan untuk melihat paketmu. Masuk lewat CLI juga membuat aplikasi desktop di mesin itu ikut masuk."
+      },
+      {
+        "q": "Daftar harga mana yang berlaku untuk saya?",
+        "a": "Daftar harga Indonesia untuk pembeli yang ditagih di Indonesia. Selain itu memakai harga Internasional. Kamu memilihnya saat checkout."
+      },
+      {
+        "q": "Apakah bisa refund?",
+        "a": "Bisa. Kamu bisa mendapat refund penuh dalam {{refundDays}} hari sejak pembelian, dengan alasan apa pun. Lihat Kebijakan Refund."
+      }
+    ],
+    "legalLinks": {
+      "terms": "Ketentuan Layanan",
+      "refund": "Kebijakan Pengembalian Dana",
+      "privacy": "Kebijakan Privasi"
+    }
+  },
+  "legal": {
+    "lastUpdated": "Terakhir diperbarui {{date}}"
   }
 }

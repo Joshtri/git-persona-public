@@ -2,6 +2,7 @@
 
 import { Trans, useTranslation } from "react-i18next";
 import { ChevronDown } from "@gravity-ui/icons";
+import { site } from "@/lib/site";
 import { Section, SectionHeading } from "../ui/section";
 import { Reveal } from "../ui/reveal";
 
@@ -9,7 +10,10 @@ export { faqs } from "@/lib/faq-data";
 
 export function Faq() {
   const { t } = useTranslation();
-  const items = t("faq.items", { returnObjects: true }) as { q: string; a: string }[];
+  const items = t("faq.items", {
+    returnObjects: true,
+    proStatus: t(`faq.proStatus.${site.pricingStatus}`),
+  }) as { q: string; a: string }[];
 
   return (
     <Section id="faq" className="max-w-4xl">

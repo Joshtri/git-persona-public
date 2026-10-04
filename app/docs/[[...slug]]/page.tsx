@@ -10,6 +10,7 @@ import {
   getDocBySegments,
   getSiblings,
 } from "@/lib/docs/registry";
+import { fetchPricing } from "@/lib/api";
 import { site } from "@/lib/site";
 
 type Params = { slug?: string[] };
@@ -57,7 +58,10 @@ export default async function DocPage({
   const { Body, meta } = entry;
   const { prev, next } = getSiblings(entry);
   const section = categoryTitle(meta.category);
-  const toc = meta.toc ?? [];
+  const proLive = meta.toc?.some((item) => item.proOnly)
+    ? (await fetchPricing()).salesStatus === "live"
+    : false;
+  const toc = (meta.toc ?? []).filter((item) => !item.proOnly || proLive);
 
   return (
     <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_13rem] xl:gap-10">

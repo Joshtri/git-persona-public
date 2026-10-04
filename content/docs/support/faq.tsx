@@ -1,6 +1,6 @@
 import type { DocMeta } from "@/lib/docs/types";
 import { A, H2, Lead, P } from "@/components/docs/prose";
-import { site } from "@/lib/site";
+import { WhenProLive } from "@/components/docs/when-pro-live";
 
 export const meta: DocMeta = {
   slug: "support/faq",
@@ -77,7 +77,7 @@ export function Body() {
       <P>
         Yes. The Free plan includes every feature for up to 3 profiles and never
         expires. Pro removes the profile limit
-        {site.pricingStatus === "live" ? "" : " and is launching soon"}. See{" "}
+        <WhenProLive otherwise=" and is launching soon" />. See{" "}
         <A href="/docs/account/plans-and-billing">Plans and billing</A> and{" "}
         <A href="/pricing">Pricing</A>.
       </P>

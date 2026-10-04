@@ -71,9 +71,14 @@ export async function fetchPricing(): Promise<PricingCatalog> {
 		"/client/pricing",
 		PRICING_REVALIDATE,
 	);
-	// An older server omits newer Free limits; keep the fallback's for those.
+	// An older server omits newer fields (Free limits, sales status); keep the
+	// fallback's for those.
 	return data
-		? { ...data, free: { ...FALLBACK_PRICING.free, ...data.free } }
+		? {
+				...data,
+				salesStatus: data.salesStatus ?? FALLBACK_PRICING.salesStatus,
+				free: { ...FALLBACK_PRICING.free, ...data.free },
+			}
 		: FALLBACK_PRICING;
 }
 

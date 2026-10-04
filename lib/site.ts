@@ -23,9 +23,6 @@ export const site = {
   githubUrl: "https://github.com/Joshtri/git-persona",
   // GitPersona Server public API base URL. Used for dynamic release/announcement data.
   apiUrl: "https://api-gitpersona.vercel.app",
-  // Flip to "live" when the app version that enforces the Free limit and sells
-  // Pro is released. While "upcoming", /pricing says Pro is not on sale yet.
-  pricingStatus: "upcoming" as "upcoming" | "live",
   // Facts the legal pages (/privacy, /terms, /refund, /contact) read. Leave a
   // field empty until it's real — the pages show a "coming soon" placeholder
   // instead of inventing a value. Fill both before submitting to DOKU.

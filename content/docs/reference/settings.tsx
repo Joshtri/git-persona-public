@@ -1,8 +1,6 @@
 import type { DocMeta } from "@/lib/docs/types";
 import { A, H2, Lead, Li, P, Ul } from "@/components/docs/prose";
-import { site } from "@/lib/site";
-
-const accountLive = site.pricingStatus === "live";
+import { WhenProLive } from "@/components/docs/when-pro-live";
 
 export const meta: DocMeta = {
   slug: "reference/settings",
@@ -15,7 +13,7 @@ export const meta: DocMeta = {
     { id: "appearance", text: "Appearance" },
     { id: "startup-tray", text: "Startup and tray" },
     { id: "repositories", text: "Repositories" },
-    ...(accountLive ? [{ id: "account", text: "Account" }] : []),
+    { id: "account", text: "Account", proOnly: true },
   ],
 };
 
@@ -65,17 +63,15 @@ export function Body() {
         repositories are discovered and organized.
       </P>
 
-      {accountLive ? (
-        <>
-          <H2 id="account">Account</H2>
-          <P>
-            <strong>Account</strong> shows your plan, profile usage, and the
-            devices signed in to your account. From here you can sign in or out,
-            start the Pro trial, upgrade or renew, and deactivate a device. See{" "}
-            <A href="/docs/account/plans-and-billing">Plans and billing</A>.
-          </P>
-        </>
-      ) : null}
+      <WhenProLive>
+        <H2 id="account">Account</H2>
+        <P>
+          <strong>Account</strong> shows your plan, profile usage, and the
+          devices signed in to your account. From here you can sign in or out,
+          start the Pro trial, upgrade or renew, and deactivate a device. See{" "}
+          <A href="/docs/account/plans-and-billing">Plans and billing</A>.
+        </P>
+      </WhenProLive>
 
     </>
   );

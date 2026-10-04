@@ -1,5 +1,5 @@
 import { site } from "@/lib/site";
-import { faqs } from "@/lib/faq-data";
+import { faqsFor } from "@/lib/faq-data";
 import { FALLBACK_PRICING, type PricingCatalog } from "@/lib/pricing";
 
 // Free is always offered; Pro offers are only listed once Pro is on sale.
@@ -11,7 +11,7 @@ function offers(catalog: PricingCatalog) {
     priceCurrency: catalog.currency,
     url: `${site.url}/pricing`,
   };
-  if (site.pricingStatus !== "live") return free;
+  if (catalog.salesStatus !== "live") return free;
   const prices = catalog.priceLists.international;
   return [
     free,
@@ -54,10 +54,10 @@ const softwareApplication = {
   ],
 };
 
-const faqPage = {
+const faqPage = (catalog: PricingCatalog) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
+  mainEntity: faqsFor(catalog.salesStatus).map((f) => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: {
@@ -65,7 +65,7 @@ const faqPage = {
       text: f.a,
     },
   })),
-};
+});
 
 export function StructuredData({
   version,
@@ -88,7 +88,7 @@ export function StructuredData({
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage(catalog)) }}
       />
     </>
   );

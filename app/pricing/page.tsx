@@ -31,7 +31,7 @@ export default async function PricingPage() {
       <Header />
       <AnnouncementBanner announcements={announcements} />
       <main className="flex-1">
-        <Pricing catalog={catalog} status={site.pricingStatus} />
+        <Pricing catalog={catalog} />
       </main>
       <Footer version={release?.version} />
     </>

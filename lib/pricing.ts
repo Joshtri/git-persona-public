@@ -4,9 +4,12 @@
 
 export type PricePlan = "monthly" | "yearly" | "founder_lifetime";
 export type PriceList = "international" | "indonesia";
+// Set in Console → Pricing. While "upcoming", the site says Pro isn't on sale yet.
+export type SalesStatus = "upcoming" | "live";
 
 export type PricingCatalog = {
   currency: "IDR";
+  salesStatus: SalesStatus;
   priceLists: Record<PriceList, Record<PricePlan, number>>;
   usdApprox: Record<PricePlan, number>;
   founderLifetime: { onSale: boolean; until: string | null };
@@ -15,9 +18,11 @@ export type PricingCatalog = {
 };
 
 // Mirrors gitpersona-server/src/modules/account/pricing.ts. The Founder offer
-// is deliberately off here: without the server we can't know it is still live.
+// and Pro sales are deliberately off here: without the server we can't know
+// they are live.
 export const FALLBACK_PRICING: PricingCatalog = {
   currency: "IDR",
+  salesStatus: "upcoming",
   priceLists: {
     international: { monthly: 65_000, yearly: 479_000, founder_lifetime: 649_000 },
     indonesia: { monthly: 29_000, yearly: 199_000, founder_lifetime: 299_000 },

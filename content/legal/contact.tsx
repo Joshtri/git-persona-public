@@ -13,10 +13,19 @@ export function ContactEn() {
         independent developer based in Indonesia.
       </Lead>
 
+      <H2 id="in-app">In the app (fastest)</H2>
+      <P>
+        Open <strong>Help &amp; Support</strong> in the sidebar (or press{" "}
+        <code>F1</code>) and choose <strong>New ticket</strong>. Replies arrive
+        right in the app, and you can attach a diagnostics report with one
+        click so you don&apos;t have to look up your version or OS. Signing in
+        is optional.
+      </P>
+
       <H2 id="email">Email</H2>
       <P>
-        <ContactEmail lang="en" /> — for support, billing, refunds, and privacy
-        requests. GitPersona is run by one person, and every message is read
+        <ContactEmail lang="en" /> — if you can&apos;t open the app, or for
+        billing, refunds, and privacy requests. GitPersona is run by one person, and every message is read
         and answered personally.
       </P>
 
@@ -58,10 +67,19 @@ export function ContactId() {
         developer independen yang berdomisili di Indonesia.
       </Lead>
 
+      <H2 id="in-app">Lewat aplikasi (paling cepat)</H2>
+      <P>
+        Buka <strong>Help &amp; Support</strong> di sidebar (atau tekan{" "}
+        <code>F1</code>) lalu pilih <strong>New ticket</strong>. Balasan masuk
+        langsung di aplikasi, dan kamu bisa melampirkan laporan diagnostik
+        dengan sekali klik tanpa perlu mencari versi atau OS-mu. Tidak wajib
+        masuk akun.
+      </P>
+
       <H2 id="email">Email</H2>
       <P>
-        <ContactEmail lang="id" /> — untuk bantuan, tagihan, pengembalian dana,
-        dan permintaan terkait privasi. GitPersona dijalankan oleh satu orang,
+        <ContactEmail lang="id" /> — jika aplikasi tidak bisa dibuka, atau untuk
+        tagihan, pengembalian dana, dan permintaan terkait privasi. GitPersona dijalankan oleh satu orang,
         dan setiap pesan dibaca serta dibalas secara langsung.
       </P>
 

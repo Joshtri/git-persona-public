@@ -96,6 +96,20 @@ export function PrivacyEn() {
           DOKU&apos;s page; we never see your full card number.
         </Li>
         <Li>
+          <strong>If you open a support ticket</strong> — the category, subject,
+          and messages you write; your app version, operating system, and
+          release channel; a random support ID the app creates for you, stored
+          as a hash, so only your app can read the replies; and a hash of your
+          IP address to limit spam. If you are signed in, the ticket is also
+          linked to your account, email address, and plan. A diagnostics report
+          is attached only while <strong>Attach diagnostics</strong> is on;
+          you can preview it or switch it off before sending. It lists your
+          app, OS, and Git versions, your plan, how many profiles,
+          repositories, rules, SSH keys, and credentials you have, and recent
+          log lines, with email addresses masked, your home folder replaced by{" "}
+          <code>~</code>, and tokens removed.
+        </Li>
+        <Li>
           <strong>If you email us</strong> — your email address and your
           message, so we can answer you.
         </Li>
@@ -160,7 +174,7 @@ export function PrivacyEn() {
         <Li>The hashed ID of a device that has used the trial is kept so the trial can&apos;t be repeated on that device.</Li>
         <Li>Order records are kept for as long as accounting and tax law requires.</Li>
         <Li>Download records are kept as anonymous download statistics.</Li>
-        <Li>Emails are kept as long as we need them to help you.</Li>
+        <Li>Emails and support tickets are kept as long as we need them to help you, and deleted on request.</Li>
       </Ul>
 
       <H2 id="choices">Your choices and rights</H2>
@@ -302,6 +316,20 @@ export function PrivacyId() {
           melihat nomor kartumu secara lengkap.
         </Li>
         <Li>
+          <strong>Jika kamu membuka tiket bantuan</strong> — kategori, judul,
+          dan pesan yang kamu tulis; versi aplikasi, sistem operasi, dan kanal
+          rilis; ID bantuan acak yang dibuat aplikasi untukmu, disimpan dalam
+          bentuk hash, sehingga hanya aplikasimu yang bisa membaca balasannya;
+          dan hash alamat IP-mu untuk membatasi spam. Jika kamu sedang masuk,
+          tiket juga ditautkan ke akun, alamat email, dan paketmu. Laporan
+          diagnostik hanya dilampirkan selama <strong>Attach diagnostics</strong>{" "}
+          aktif; kamu bisa melihatnya dulu atau mematikannya sebelum mengirim.
+          Isinya versi aplikasi, OS, dan Git, paketmu, jumlah profil,
+          repositori, aturan, SSH key, dan kredensial, serta baris log terbaru,
+          dengan alamat email disamarkan, folder home diganti <code>~</code>,
+          dan token dihapus.
+        </Li>
+        <Li>
           <strong>Jika kamu mengirim email ke kami</strong> — alamat email dan
           isi pesanmu, agar kami bisa membalasnya.
         </Li>
@@ -368,7 +396,7 @@ export function PrivacyId() {
         <Li>Hash ID perangkat yang sudah memakai trial disimpan agar trial tidak bisa diulang di perangkat itu.</Li>
         <Li>Catatan pesanan disimpan selama diwajibkan aturan akuntansi dan perpajakan.</Li>
         <Li>Catatan unduhan disimpan sebagai statistik unduhan anonim.</Li>
-        <Li>Email disimpan selama kami membutuhkannya untuk membantumu.</Li>
+        <Li>Email dan tiket bantuan disimpan selama kami membutuhkannya untuk membantumu, dan dihapus atas permintaan.</Li>
       </Ul>
 
       <H2 id="choices">Pilihan dan hakmu</H2>

@@ -34,7 +34,7 @@ export const site = {
     operatorKnownAs: "Joshtri Lenggu",
     contactEmail: "gitpersona@outlook.com",
     refundDays: 7,
-    lastUpdated: "2026-10-01",
+    lastUpdated: "2026-10-03",
   },
   keywords: [
     "Git Profile Manager",

@@ -240,7 +240,8 @@
       { "title": "Team profiles", "body": "Share identity templates across your team." },
       { "title": "GitLab support", "body": "First-class credential and SSH support for GitLab." },
       { "title": "Bitbucket support", "body": "Native support for Bitbucket Cloud and Server." },
-      { "title": "Workspace automation", "body": "Run scripts and set environment variables on identity switch." }
+      { "title": "Workspace automation", "body": "Run scripts and set environment variables on identity switch." },
+      { "title": "Remote manager", "body": "View, switch, and add remotes per repository, with a warning before you push when the remote's owner doesn't match the active profile." }
     ]
   },
   "download": {

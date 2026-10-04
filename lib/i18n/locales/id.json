@@ -240,7 +240,8 @@
       { "title": "Profil tim", "body": "Bagikan template identitas ke seluruh tim kamu." },
       { "title": "Dukungan GitLab", "body": "Dukungan kredensial dan SSH kelas satu untuk GitLab." },
       { "title": "Dukungan Bitbucket", "body": "Dukungan native untuk Bitbucket Cloud dan Server." },
-      { "title": "Otomasi workspace", "body": "Jalankan skrip dan set variabel lingkungan saat pergantian identitas." }
+      { "title": "Otomasi workspace", "body": "Jalankan skrip dan set variabel lingkungan saat pergantian identitas." },
+      { "title": "Pengelola remote", "body": "Lihat, ganti, dan tambah remote per repositori, dengan peringatan sebelum push saat pemilik remote tidak cocok dengan profil aktif." }
     ]
   },
   "download": {

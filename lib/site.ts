@@ -120,6 +120,10 @@ export const site = {
         title: "Workspace automation",
         body: "Run scripts and set environment variables on identity switch.",
       },
+      {
+        title: "Remote manager",
+        body: "View, switch, and add remotes per repository, with a warning before you push when the remote's owner doesn't match the active profile.",
+      },
     ] as RoadmapItem[],
   },
 };

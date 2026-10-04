@@ -32,7 +32,7 @@ export default async function Home() {
         <Features preview />
         <Screenshots />
         <Workflow />
-        <Faq />
+        <Faq status={catalog.salesStatus} />
       </main>
       <Footer version={release?.version} />
     </>

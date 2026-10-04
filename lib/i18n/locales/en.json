@@ -240,7 +240,8 @@
       { "title": "Team profiles", "body": "Share identity templates across your team." },
       { "title": "GitLab support", "body": "First-class credential and SSH support for GitLab." },
       { "title": "Bitbucket support", "body": "Native support for Bitbucket Cloud and Server." },
-      { "title": "Workspace automation", "body": "Run scripts and set environment variables on identity switch." }
+      { "title": "Workspace automation", "body": "Run scripts and set environment variables on identity switch." },
+      { "title": "Remote manager", "body": "View, switch, and add remotes per repository, with a warning before you push when the remote's owner doesn't match the active profile." }
     ]
   },
   "download": {
@@ -416,5 +417,15 @@
   },
   "legal": {
     "lastUpdated": "Last updated {{date}}"
+  },
+  "checkout": {
+    "title": "Thanks for your purchase",
+    "lead": "If you finished paying, your payment is being confirmed. You can close this tab.",
+    "stepsTitle": "What happens next",
+    "step1": "Go back to the GitPersona app.",
+    "step2": "Pro unlocks on its own within a minute, once the payment is confirmed.",
+    "help": "Pro still not active after a few minutes? Contact us with your invoice number and we'll sort it out.",
+    "contact": "Contact support",
+    "pricing": "View plans"
   }
 }

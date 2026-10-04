@@ -2,17 +2,17 @@
 
 import { Trans, useTranslation } from "react-i18next";
 import { ChevronDown } from "@gravity-ui/icons";
-import { site } from "@/lib/site";
+import type { SalesStatus } from "@/lib/pricing";
 import { Section, SectionHeading } from "../ui/section";
 import { Reveal } from "../ui/reveal";
 
-export { faqs } from "@/lib/faq-data";
+export { faqsFor } from "@/lib/faq-data";
 
-export function Faq() {
+export function Faq({ status }: { status: SalesStatus }) {
   const { t } = useTranslation();
   const items = t("faq.items", {
     returnObjects: true,
-    proStatus: t(`faq.proStatus.${site.pricingStatus}`),
+    proStatus: t(`faq.proStatus.${status}`),
   }) as { q: string; a: string }[];
 
   return (

@@ -2,6 +2,7 @@ import type { DocMeta } from "@/lib/docs/types";
 import { A, H2, Lead, Li, P, Ul } from "@/components/docs/prose";
 import { Callout } from "@/components/docs/callout";
 import { CodeBlock } from "@/components/docs/code-block";
+import { WhenProLive } from "@/components/docs/when-pro-live";
 import { site } from "@/lib/site";
 
 export const meta: DocMeta = {
@@ -35,12 +36,14 @@ export function Body() {
         CLI.
       </Lead>
 
-      {site.pricingStatus !== "live" ? (
-        <Callout variant="note" title="Pro is launching soon">
-          This page describes how plans will work once Pro launches. Nothing you
-          set up before then will ever be locked.
-        </Callout>
-      ) : null}
+      <WhenProLive
+        otherwise={
+          <Callout variant="note" title="Pro is launching soon">
+            This page describes how plans will work once Pro launches. Nothing
+            you set up before then will ever be locked.
+          </Callout>
+        }
+      />
 
       <H2 id="plans">Free and Pro</H2>
       <Ul>

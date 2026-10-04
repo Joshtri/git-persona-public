@@ -5,6 +5,8 @@ import type { ComponentType } from "react";
 export interface TocItem {
   id: string;
   text: string;
+  /** Listed only once Pro is on sale (its heading is wrapped in WhenProLive). */
+  proOnly?: boolean;
 }
 
 /** Stable identifiers for the documentation categories. Ordering of the sidebar

@@ -1,7 +1,7 @@
 import type { DocMeta } from "@/lib/docs/types";
 import { A, Field, H2, Lead, Li, Ol, P, Ul } from "@/components/docs/prose";
 import { Callout } from "@/components/docs/callout";
-import { site } from "@/lib/site";
+import { WhenProLive } from "@/components/docs/when-pro-live";
 
 export const meta: DocMeta = {
   slug: "getting-started/first-profile",
@@ -91,12 +91,10 @@ export function Body() {
         <Li>Save. The profile is now available to activate and to assign keys and credentials to.</Li>
       </Ol>
       <P>
-        {site.pricingStatus === "live" ? (
-          <>
-            The Free plan includes up to 3 profiles; Pro removes the limit (see{" "}
-            <A href="/docs/account/plans-and-billing">Plans and billing</A>).{" "}
-          </>
-        ) : null}
+        <WhenProLive>
+          The Free plan includes up to 3 profiles; Pro removes the limit (see{" "}
+          <A href="/docs/account/plans-and-billing">Plans and billing</A>).{" "}
+        </WhenProLive>
         Next, attach an{" "}
         <A href="/docs/identity/ssh-keys">SSH key</A> or an{" "}
         <A href="/docs/identity/credentials">HTTPS credential</A>, or learn how{" "}

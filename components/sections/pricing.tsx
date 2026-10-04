@@ -23,7 +23,6 @@ import { Reveal, RevealGroup, RevealItem } from "../ui/reveal";
 import { Section, SectionHeading } from "../ui/section";
 
 type Period = "monthly" | "yearly";
-type Status = "upcoming" | "live";
 
 const PRICE_LIST_KEY = "gitpersona-price-list";
 
@@ -182,13 +181,7 @@ function CompareCell({ value }: { value: string | boolean }) {
   return <span className="text-xs text-muted sm:text-sm">{value}</span>;
 }
 
-export function Pricing({
-  catalog,
-  status,
-}: {
-  catalog: PricingCatalog;
-  status: Status;
-}) {
+export function Pricing({ catalog }: { catalog: PricingCatalog }) {
   const { t, i18n } = useTranslation();
   const lang = i18n.language?.startsWith("id") ? "id" : "en";
   const [period, setPeriod] = useState<Period>("yearly");
@@ -222,7 +215,7 @@ export function Pricing({
     list === "international" ? t("pricing.usd", { amount }) : null;
   const { profiles, reposPerProfile: repos } = catalog.free;
   const { devices, trialDays } = catalog.pro;
-  const live = status === "live";
+  const live = catalog.salesStatus === "live";
   const paidCta = live ? t("pricing.ctaLive") : t("pricing.ctaUpcoming");
   const paidNote = live ? t("pricing.noteLive") : t("pricing.noteUpcoming");
   const founderUntil = catalog.founderLifetime.until

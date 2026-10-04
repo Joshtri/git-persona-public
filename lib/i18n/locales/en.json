@@ -417,5 +417,15 @@
   },
   "legal": {
     "lastUpdated": "Last updated {{date}}"
+  },
+  "checkout": {
+    "title": "Thanks for your purchase",
+    "lead": "If you finished paying, your payment is being confirmed. You can close this tab.",
+    "stepsTitle": "What happens next",
+    "step1": "Go back to the GitPersona app.",
+    "step2": "Pro unlocks on its own within a minute, once the payment is confirmed.",
+    "help": "Pro still not active after a few minutes? Contact us with your invoice number and we'll sort it out.",
+    "contact": "Contact support",
+    "pricing": "View plans"
   }
 }

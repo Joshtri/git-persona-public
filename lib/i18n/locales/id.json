@@ -417,5 +417,15 @@
   },
   "legal": {
     "lastUpdated": "Terakhir diperbarui {{date}}"
+  },
+  "checkout": {
+    "title": "Terima kasih atas pembelian Anda",
+    "lead": "Jika pembayaran sudah selesai, saat ini sedang kami konfirmasi. Tab ini boleh ditutup.",
+    "stepsTitle": "Langkah selanjutnya",
+    "step1": "Kembali ke aplikasi GitPersona.",
+    "step2": "Pro aktif otomatis dalam satu menit setelah pembayaran terkonfirmasi.",
+    "help": "Pro belum aktif setelah beberapa menit? Hubungi kami dengan menyertakan nomor invoice, kami akan bantu.",
+    "contact": "Hubungi dukungan",
+    "pricing": "Lihat paket"
   }
 }
